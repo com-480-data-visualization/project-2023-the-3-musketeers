@@ -23,13 +23,25 @@ Please, fill the following sections about your project.
 >
 > Hint: some good pointers for finding quality publicly available datasets ([Google dataset search](https://datasetsearch.research.google.com/), [Kaggle](https://www.kaggle.com/datasets), [OpenSwissData](https://opendata.swiss/en/), [SNAP](https://snap.stanford.edu/data/) and [FiveThirtyEight](https://data.fivethirtyeight.com/)), you could use also the DataSets proposed by the ENAC (see the Announcements section on Zulip). -->
 
-As Switzerland is especially famous for chocolate, we decided to explore the factors that play a role in deciding the quality of chocolate. The dataset we use for this project is [Chocolate Bar Ratings](https://www.kaggle.com/datasets/rtatman/chocolate-bar-ratings). The dataset records the ratings from experts of more than 1700 chocolate bars using. *Flavors of Cacao Rating System* is adopted to rate each chocolate from level Unpleasant (rating=1) to Elite (rating=5). This dataset also provides with us the background information (chocolate maker, specific bean origin, broad bean origin, REF value, review date, cocoa percentage, company location, date of review, cocoa percentage, company region and bean type). All the data are stored in a csv file of 1795 rows and 9 columns.  
+As Switzerland is renowned for its chocolate, we embarked on a project to investigate the factors that influence the quality of chocolate. o achieve this goal, we utilized the [Chocolate Bar Ratings](https://www.kaggle.com/datasets/rtatman/chocolate-bar-ratings), which comprises the ratings given by experts to over 1700 chocolate bars using the Flavors of Cacao Rating System. The dataset we use for this project is [Chocolate Bar Ratings](https://www.kaggle.com/datasets/rtatman/chocolate-bar-ratings). This system rates each chocolate on a scale from Unpleasant (rating=1) to Elite (rating=5).  The dataset also contains additional background information, such as the chocolate maker, specific bean origin, broad bean origin, REF value, review date, cocoa percentage, company location, date of review, company region, and bean type. This information is stored in a csv file consisting of 1795 rows and 9 columns.
+
+The dataset comprises three different data types: *int* (for REF value and review data), *float* (for ratings) and *str* (for all other attributes). However, we notice that 887 out of 1975 data of bean type is null, while 73 out of 1975 for broad bean origin. Several approaches could be employed to address missing values for the broad bean origin attribute, including inferring them from the specific bean origin. Overall, the dataset is relatively clean.
 
 ### Problematic
 
-> Frame the general topic of your visualization and the main axis that you want to develop.
+<!-- > Frame the general topic of your visualization and the main axis that you want to develop.
 > - What am I trying to show with my visualization?
-> - Think of an overview for the project, your motivation, and the target audience.
+> - Think of an overview for the project, your motivation, and the target audience. -->
+
+In this project, we are motivated to extract meaningful insights from the Chocolate Bar Ratings dataset, with the aim of helping chocolate makers formulate effective product-making strategies. Specifically, we seek to answer the following questions:
+
+* To what extent does the cocoa percentage impact the chocolate rating?
+* Does the type or origin of the bean influence the flavor of the chocolate?
+* Is there a discernible trend in chocolate taste between 2006 and 2017?
+* Have certain chocolate makers already adopted similar manufacturing practices?
+
+To accomplish these objectives, we will process, analyze, and aggregate the data using appropriate techniques and visualization methods, such as geovisualization and time series analysis. The ultimate goal is to provide clear and actionable insights to chocolate makers.
+
 
 ### Exploratory Data Analysis
 
