@@ -40,8 +40,13 @@ Please, fill the following sections about your project.
 - however, the beans origins are mainly Central and South America
 - there is no type record for most of the beans, followed by the bean type Trinitario.
 
-![Cocoa Percent](https://user-images.githubusercontent.com/116460894/230110744-b5106374-c9f9-43ac-bf7a-d8d4984b2225.jpg)
+<div>
+  <img src="https://user-images.githubusercontent.com/116460894/230110744-b5106374-c9f9-43ac-bf7a-d8d4984b2225.jpg" alt="Cocoa Percent" style="width:50%; float:left;">
+  <img src="https://user-images.githubusercontent.com/116460894/230112879-852d374c-d5c3-4cea-8f65-afcb3fdfc281.jpg" alt="Cocoa Percent vs  Rating" style="width:50%; float:right;">
+</div>
+
 - most of the chocolate bars reviewed contains 70% of cocoa
+- There's a slight negative correlation between Cocoa Percent and Rating
 
 ### Related work
 
