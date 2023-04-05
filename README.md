@@ -34,6 +34,15 @@ Please, fill the following sections about your project.
 > Pre-processing of the data set you chose
 > - Show some basic statistics and get insights about the data
 
+![loc type](https://user-images.githubusercontent.com/116460894/230110520-6ef6dd69-b6ef-457c-84d8-92132cc1e3ca.jpg)
+
+- the majority of the companies are from the US
+- however, the beans origins are mainly Central and South America
+- there is no type record for most of the beans, followed by the bean type Trinitario.
+
+![Cocoa Percent](https://user-images.githubusercontent.com/116460894/230110744-b5106374-c9f9-43ac-bf7a-d8d4984b2225.jpg)
+- most of the chocolate bars reviewed contains 70% of cocoa
+
 ### Related work
 
 
