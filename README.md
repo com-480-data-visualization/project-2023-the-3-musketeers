@@ -31,8 +31,11 @@ Please, fill the following sections about your project.
 
 ### Exploratory Data Analysis
 
-> Pre-processing of the data set you chose
-> - Show some basic statistics and get insights about the data
+Firstly, we check the shape of the data frame to get a first glimpse
+
+<img width="902" alt="image" src="https://user-images.githubusercontent.com/116460894/230116277-1d5af9df-978e-4a72-80b9-6f04ecfb0e1c.png">
+
+Then we visualize some important variables to have some statistical insight.
 
 ![loc type](https://user-images.githubusercontent.com/116460894/230110520-6ef6dd69-b6ef-457c-84d8-92132cc1e3ca.jpg)
 
@@ -40,10 +43,7 @@ Please, fill the following sections about your project.
 - however, the beans origins are mainly Central and South America
 - there is no type record for most of the beans, followed by the bean type Trinitario.
 
-<div>
-  <img src="https://user-images.githubusercontent.com/116460894/230110744-b5106374-c9f9-43ac-bf7a-d8d4984b2225.jpg" alt="Cocoa Percent" style="width:50%; float:left;">
-  <img src="https://user-images.githubusercontent.com/116460894/230112879-852d374c-d5c3-4cea-8f65-afcb3fdfc281.jpg" alt="Cocoa Percent vs  Rating" style="width:50%; float:right;">
-</div>
+<img src="https://user-images.githubusercontent.com/116460894/230115519-dc578f9f-b8e7-4363-8502-267c7b2d3e80.jpg" alt="Cocoa Percent" width='500'><img src="https://user-images.githubusercontent.com/116460894/230112879-852d374c-d5c3-4cea-8f65-afcb3fdfc281.jpg" alt="Cocoa Percent vs  Rating" width=500>
 
 - most of the chocolate bars reviewed contains 70% of cocoa
 - There's a slight negative correlation between Cocoa Percent and Rating
