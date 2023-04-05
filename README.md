@@ -31,7 +31,7 @@ Please, fill the following sections about your project.
 
 ### Exploratory Data Analysis
 
-Firstly, we check the first 5 rows of the data frame to get a first glimpse.
+There are 1795 tuples in our dataset. Firstly, we check the first 5 rows of the data frame to get a first glimpse.
 
 <img width="902" alt="image" src="https://user-images.githubusercontent.com/116460894/230116277-1d5af9df-978e-4a72-80b9-6f04ecfb0e1c.png">
 
