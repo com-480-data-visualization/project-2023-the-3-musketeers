@@ -51,7 +51,7 @@ We think our subject is worth tackling because nowadays there is an increased de
 
 ### Exploratory Data Analysis
 
-There are 1795 tuples of information in our dataset. Firstly, we check the first 5 rows of the data frame to get a first glimpse.
+Our dataset consists of 1795 tuples. We wanted to get an initial understanding and checked the first 5 rows of the data frame to get a first glimpse.
 
 <img width="902" alt="image" src="https://user-images.githubusercontent.com/116460894/230116277-1d5af9df-978e-4a72-80b9-6f04ecfb0e1c.png">
 
@@ -62,13 +62,15 @@ Then we visualize some important variables to have some statistical insight on t
 From the visualization, we found that:
 - The majority of the companies are from the United States;
 - However, the beans origins are mainly Central and South America;
-- The majority of cocoa beans in the dataset do not have a recorded type, followed by Trinitario beans
+- The majority of cocoa beans in the dataset do not have a recorded type, followed by Trinitario beans.
 
 <img src="https://user-images.githubusercontent.com/116460894/230115519-dc578f9f-b8e7-4363-8502-267c7b2d3e80.jpg" alt="Cocoa Percent" width='500'><img src="https://user-images.githubusercontent.com/116460894/230112879-852d374c-d5c3-4cea-8f65-afcb3fdfc281.jpg" alt="Cocoa Percent vs  Rating" width=500>
 
 Next, we examined the relationship between cocoa percent and rating:
 - Most of the chocolate bars reviewed contains 70% of cocoa;
 - There's a slight negative correlation between Cocoa Percent and Rating.
+- The average rating of all chocolate bars in the dataset is 3.2/5
+
 
 We think that understanding these insights is important for chocolate manufacturers, distributors, and retailers who want to improve the quality of their products and make informed decisions about cocoa bean sourcing and type. Customers who want to buy high-quality chocolate can also benefit from these information.
 
