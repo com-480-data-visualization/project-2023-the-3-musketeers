@@ -27,7 +27,7 @@ As Switzerland is renowned for its chocolate, we embarked on a project to invest
 
 The dataset comprises three different data types: *int* (for REF value and review data), *float* (for ratings) and *str* (for all other attributes). However, we observed that 887 out of 1795 data points for bean type were null, while 73 out of 1795 were missing for broad bean origin. Several approaches could be employed to address missing values for the broad bean origin attribute, including inferring them from the specific bean origin. Overall, the dataset is relatively clean.
 
-We are aware of the fact that there are always some limitations to consider even if the Chocolate Bar Ratings dataset gives us a lot of information on nearly 1800 chocolate bars. In our case, our limitations would be the fact that it's missing some important information such as the price, the brand, or the packaging, which could also impact the chocolate quality. But even with these limitations, the dataset is still useful for exploring the factors that impact chocolate quality and learning about the chocolate industry.
+We are aware of the fact that there are always some limitations to consider even if the Chocolate Bar Ratings dataset gives us a lot of information on nearly 1800 chocolate bars. In our case, our limitations would be the fact that it's missing some important information such as the price, the brand, or the packaging, which could also impact the chocolate quality. But even with these limitations, the dataset is still useful and has a lot of data that can be used for exploring the factors that impact chocolate quality and learning more about the chocolate industry.
 
 ### Problematic
 
@@ -35,34 +35,42 @@ We are aware of the fact that there are always some limitations to consider even
 > - What am I trying to show with my visualization?
 > - Think of an overview for the project, your motivation, and the target audience. -->
 
-In this project, we are motivated to extract meaningful insights from the Chocolate Bar Ratings dataset, with the aim of helping chocolate makers formulate effective product-making strategies. Specifically, we seek to answer the following questions:
+Our motivations for this projects are to extract meaningful insights from the Chocolate Bar Ratings dataset, with the aim of helping chocolate makers formulate effective product-making strategies. Our target audience includes not only the chocolates manufacturers and retailers who want to improve their products quality and increase their sales, but also customers who want to understand the factors that contribute to a higher-quality chocolate to make informed decisions when buying it. Specifically, we seek to answer the following questions:
 
 * To what extent does the cocoa percentage impact the chocolate rating?
-* Does the type or origin of the bean influence the flavor of the chocolate?
+* Does the type or origin of the bean influence the flavor of the chocolate? If yes which specific beans produce higher-rated chocolate and why?
 * Is there a discernible trend in chocolate taste between 2006 and 2017?
 * Have certain chocolate makers already adopted similar manufacturing practices?
 
-To accomplish these objectives, we will process, analyze, and aggregate the data using appropriate techniques and visualization methods, such as geovisualization and time series analysis. The ultimate goal is to provide clear and actionable insights to chocolate makers.
+To accomplish these objectives, we will process, analyze, and aggregate the data using appropriate techniques and visualization methods, such as geovisualization and time series analysis. By doing so, we aim to provide clear and insightful visualizations that can help our target audience make informed decisions about their products. 
+
+We think our subject is worth tackling because nowadays there is an increased demand for high quality products made sustainably, and chocolate is directly concerned by this trend. Our ultimate goal is to provide clear and actionable insights to chocolate makers because by having a better understanding of the factors that influence chocolate quality, they can improve their products, stay competitive and propose better products for customers.
+
+
 
 
 ### Exploratory Data Analysis
 
-There are 1795 tuples in our dataset. Firstly, we check the first 5 rows of the data frame to get a first glimpse.
+There are 1795 tuples of information in our dataset. Firstly, we check the first 5 rows of the data frame to get a first glimpse.
 
 <img width="902" alt="image" src="https://user-images.githubusercontent.com/116460894/230116277-1d5af9df-978e-4a72-80b9-6f04ecfb0e1c.png">
 
-Then we visualize some important variables to have some statistical insight.
+Then we visualize some important variables to have some statistical insight on the data.
 
 ![loc type](https://user-images.githubusercontent.com/116460894/230110520-6ef6dd69-b6ef-457c-84d8-92132cc1e3ca.jpg)
 
-- the majority of the companies are from the US;
-- however, the beans origins are mainly Central and South America;
-- there is no type record for most of the beans, followed by the bean type Trinitario.
+From the visualization, we found that:
+- The majority of the companies are from the United States;
+- However, the beans origins are mainly Central and South America;
+- The majority of cocoa beans in the dataset do not have a recorded type, followed by Trinitario beans
 
 <img src="https://user-images.githubusercontent.com/116460894/230115519-dc578f9f-b8e7-4363-8502-267c7b2d3e80.jpg" alt="Cocoa Percent" width='500'><img src="https://user-images.githubusercontent.com/116460894/230112879-852d374c-d5c3-4cea-8f65-afcb3fdfc281.jpg" alt="Cocoa Percent vs  Rating" width=500>
 
-- most of the chocolate bars reviewed contains 70% of cocoa;
+Next, we examined the relationship between cocoa percent and rating:
+- Most of the chocolate bars reviewed contains 70% of cocoa;
 - There's a slight negative correlation between Cocoa Percent and Rating.
+
+We think that understanding these insights is important for chocolate manufacturers, distributors, and retailers who want to improve the quality of their products and make informed decisions about cocoa bean sourcing and type. Customers who want to buy high-quality chocolate can also benefit from these information.
 
 ### Related work
 
