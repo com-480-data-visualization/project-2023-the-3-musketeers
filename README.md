@@ -4,7 +4,7 @@
 | -------------- | ------ |
 |Zhan Li |351592 |
 | | |
-| | |
+|Dana Kalaaji |289583 |
 
 [Milestone 1](#milestone-1) • [Milestone 2](#milestone-2) • [Milestone 3](#milestone-3)
 
@@ -23,9 +23,11 @@ Please, fill the following sections about your project.
 >
 > Hint: some good pointers for finding quality publicly available datasets ([Google dataset search](https://datasetsearch.research.google.com/), [Kaggle](https://www.kaggle.com/datasets), [OpenSwissData](https://opendata.swiss/en/), [SNAP](https://snap.stanford.edu/data/) and [FiveThirtyEight](https://data.fivethirtyeight.com/)), you could use also the DataSets proposed by the ENAC (see the Announcements section on Zulip). -->
 
-As Switzerland is renowned for its chocolate, we embarked on a project to investigate the factors that influence the quality of chocolate. o achieve this goal, we utilized the [Chocolate Bar Ratings](https://www.kaggle.com/datasets/rtatman/chocolate-bar-ratings), which comprises the ratings given by experts to over 1700 chocolate bars using the Flavors of Cacao Rating System. This system rates each chocolate on a scale from Unpleasant (rating=1) to Elite (rating=5). The dataset also contains additional background information, such as the chocolate maker, specific bean origin, broad bean origin, REF value, review date, cocoa percentage, company location, date of review, company region, and bean type. This information is stored in a csv file consisting of 1795 rows and 9 columns.
+As Switzerland is renowned for its chocolate, we embarked on a project to investigate the factors that influence the quality of chocolate. To achieve this goal, we utilized the [Chocolate Bar Ratings](https://www.kaggle.com/datasets/rtatman/chocolate-bar-ratings), which comprises the ratings given by experts to over 1700 chocolate bars using the Flavors of Cacao Rating System. This system rates each chocolate on a scale from Unpleasant (rating=1) to Elite (rating=5). The dataset also contains additional background information, such as the chocolate maker, specific bean origin, broad bean origin, REF value, review date, cocoa percentage, company location, date of review, company region, and bean type. This information is stored in a csv file consisting of 1795 rows and 9 columns.
 
 The dataset comprises three different data types: *int* (for REF value and review data), *float* (for ratings) and *str* (for all other attributes). However, we observed that 887 out of 1975 data points for bean type were null, while 73 out of 1975 were missing for broad bean origin. Several approaches could be employed to address missing values for the broad bean origin attribute, including inferring them from the specific bean origin. Overall, the dataset is relatively clean.
+
+We are aware of the fact that although the Chocolate Bar Ratings dataset gives us a lot of information on more than  chocolate bars, there are some limitations to consider. Among them the fact that it's missing some important information such as the price, the brand, or the packaging, which could also impact the chocolate quality. However, even if there are some missing variables to the dataset, we think that it is still useful for investigating the factors that affect chocolate quality and gaining insights into the chocolate market.
 
 ### Problematic
 
