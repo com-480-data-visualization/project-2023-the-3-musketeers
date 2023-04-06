@@ -27,7 +27,7 @@ As Switzerland is renowned for its chocolate, we embarked on a project to invest
 
 The dataset comprises three different data types: *int* (for REF value and review data), *float* (for ratings) and *str* (for all other attributes). However, we observed that 887 out of 1975 data points for bean type were null, while 73 out of 1975 were missing for broad bean origin. Several approaches could be employed to address missing values for the broad bean origin attribute, including inferring them from the specific bean origin. Overall, the dataset is relatively clean.
 
-We are aware of the fact that although the Chocolate Bar Ratings dataset gives us a lot of information on more than 1700 chocolate bars, there are some limitations to consider. Among them the fact that it's missing some important information such as the price, the brand, or the packaging, which could also impact the chocolate quality. However, even if there are some missing variables to the dataset, we think that it is still useful for investigating the factors that affect chocolate quality and gaining insights into the chocolate market.
+We are aware of the fact that there are always some limitations to consider even if the Chocolate Bar Ratings dataset gives us a lot of information on more than 1700 chocolate bars. In our case, our limitations would be the fact that it's missing some important information such as the price, the brand, or the packaging, which could also impact the chocolate quality. But even with these limitations, the dataset is still useful for exploring the factors that impact chocolate quality and learning about the chocolate industry.
 
 ### Problematic
 
