@@ -44,10 +44,6 @@ Our motivations for this projects are to extract meaningful insights from the Ch
 
 To accomplish these objectives, we will process, analyze, and aggregate the data using appropriate techniques and visualization methods, such as geovisualization and time series analysis. By doing so, we aim to provide clear and insightful visualizations that can help our target audience make informed decisions about their products. 
 
-We think our subject is worth tackling because nowadays there is an increased demand for high quality products made sustainably, and chocolate is directly concerned by this trend. Our ultimate goal is to provide clear and actionable insights to chocolate makers because by having a better understanding of the factors that influence chocolate quality, they can improve their products, stay competitive and propose better products for customers.
-
-
-
 
 ### Exploratory Data Analysis
 
@@ -81,6 +77,9 @@ We think that understanding these insights is important for chocolate manufactur
 > - Why is your approach original?
 > - What source of inspiration do you take? Visualizations that you found on other websites or magazines (might be unrelated to your data).
 > - In case you are using a dataset that you have already explored in another context (ML or ADA course, semester project...), you are required to share the report of that work to outline the differences with the submission for this class.
+
+
+We think our subject is worth tackling because nowadays there is an increased demand for high quality products made sustainably, and chocolate is directly concerned by this trend. Our ultimate goal is to provide clear and actionable insights to chocolate makers because by having a better understanding of the factors that influence chocolate quality, they can improve their products, stay competitive and propose better products for customers.
 
 ## Milestone 2 (7th May, 5pm)
 
