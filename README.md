@@ -23,11 +23,11 @@ Please, fill the following sections about your project.
 >
 > Hint: some good pointers for finding quality publicly available datasets ([Google dataset search](https://datasetsearch.research.google.com/), [Kaggle](https://www.kaggle.com/datasets), [OpenSwissData](https://opendata.swiss/en/), [SNAP](https://snap.stanford.edu/data/) and [FiveThirtyEight](https://data.fivethirtyeight.com/)), you could use also the DataSets proposed by the ENAC (see the Announcements section on Zulip). -->
 
-As Switzerland is renowned for its chocolate, we embarked on a project to investigate the factors that influence the quality of chocolate. To achieve this goal, we utilized the [Chocolate Bar Ratings](https://www.kaggle.com/datasets/rtatman/chocolate-bar-ratings), which comprises the ratings given by experts to over 1700 chocolate bars using the Flavors of Cacao Rating System. This system rates each chocolate on a scale from Unpleasant (rating=1) to Elite (rating=5). The dataset also contains additional background information, such as the chocolate maker, specific bean origin, broad bean origin, REF value, review date, cocoa percentage, company location, date of review, company region, and bean type. This information is stored in a csv file consisting of 1795 rows and 9 columns.
+As Switzerland is renowned for its chocolate, we embarked on a project to investigate the factors that influence the quality of chocolate. To achieve this goal, we utilized the [Chocolate Bar Ratings](http://flavorsofcacao.com/chocolate_database.html), which comprises the ratings given by experts to over 2600 chocolate bars using the Flavors of Cacao Rating System. This system rates each chocolate on a scale from Unpleasant (rating=1) to Elite (rating=5). The dataset also contains additional background information, such as the chocolate maker, specific bean origin, broad bean origin, REF value, review date, cocoa percentage, company location, date of review, company region, ingredients and most memorable characteristics. This dataset can be stored in a csv file consisting of 2632 rows and 10 columns.
 
-The dataset comprises three different data types: *int* (for REF value and review data), *float* (for ratings) and *str* (for all other attributes). However, we observed that 887 out of 1795 data points for bean type were null, while 73 out of 1795 were missing for broad bean origin. Several approaches could be employed to address missing values for the broad bean origin attribute, including inferring them from the specific bean origin. Overall, the dataset is relatively clean.
+The dataset comprises three different data types: *int* (for REF value and review data), *float* (for ratings) and *str* (for all other attributes). However, we observed that 87 out of 2632 data points for ingredients were null. Several approaches could be employed to address missing values for this variable, including inferring them from the specific bean origin. Overall, the dataset is relatively clean.
 
-We are aware of the fact that there are always some limitations to consider even if the Chocolate Bar Ratings dataset gives us a lot of information on nearly 1800 chocolate bars. In our case, our limitations would be the fact that it's missing some important information such as the price, the brand, or the packaging, which could also impact the chocolate quality. But even with these limitations, the dataset is still useful and has a lot of data that can be used for exploring the factors that impact chocolate quality and learning more about the chocolate industry.
+We are aware of the fact that there are always some limitations to consider even if the Chocolate Bar Ratings dataset gives us a lot of information on over 2600 chocolate bars. In our case, our limitations would be the fact that it's missing some important information such as the price or the packaging, which could also impact the chocolate quality. But even with these limitations, the dataset is still useful and has a lot of data that can be used for exploring the factors that impact chocolate quality and learning more about the chocolate industry.
 
 ### Problematic
 
@@ -39,17 +39,17 @@ Our motivations for this projects are to extract meaningful insights from the Ch
 
 * To what extent does the cocoa percentage impact the chocolate rating?
 * Does the type or origin of the bean influence the flavor of the chocolate? If yes which specific beans produce higher-rated chocolate and why?
-* Is there a discernible trend in chocolate taste between 2006 and 2017?
+* Is there a discernible trend in chocolate taste between 2006 and 2022?
 * Have certain chocolate makers already adopted similar manufacturing practices?
 
 To accomplish these objectives, we will process, analyze, and aggregate the data using appropriate techniques and visualization methods, such as geovisualization and time series analysis. By doing so, we aim to provide clear and insightful visualizations that can help our target audience make informed decisions about their products. 
 
-
 ### Exploratory Data Analysis
 
-Our dataset consists of 1795 tuples. We wanted to get an initial understanding and checked the first 5 rows of the data frame to get a first glimpse.
+Our dataset consists of 2632 tuples. We wanted to get an initial understanding and checked the first 5 rows of the data frame to get a first glimpse.
 
-<img width="902" alt="image" src="https://user-images.githubusercontent.com/116460894/230116277-1d5af9df-978e-4a72-80b9-6f04ecfb0e1c.png">
+![5_first_rows](https://user-images.githubusercontent.com/72870726/230516057-d837c8df-b048-44e7-8613-8f05e543ea9b.png)
+
 
 Then we visualize some important variables to have some statistical insight on the data.
 
