@@ -91,12 +91,6 @@ We think that understanding these insights is important for chocolate manufactur
 
 ### Related work
 
-
-> - What others have already done with the data?
-> - Why is your approach original?
-> - What source of inspiration do you take? Visualizations that you found on other websites or magazines (might be unrelated to your data).
-> - In case you are using a dataset that you have already explored in another context (ML or ADA course, semester project...), you are required to share the report of that work to outline the differences with the submission for this class.
-
 Some other work has some extensive exploratory data analysis to research [what characterize good chocolate](https://www.kaggle.com/code/allunia/how-good-does-your-chocolate-taste) and [the relationship between chocolate quality and the distribution of company locations](https://www.kaggle.com/code/fangya/chocolate-bar-rating-eda-anova-svm). However, they have mostly failed to provide insight into the correlated contribution of attributes to chocolate ratings.
 
 We think our subject is worth tackling because nowadays there is an increased demand for high quality products made sustainably, and chocolate is directly concerned by this trend. Our ultimate goal is to provide clear and actionable insights to chocolate makers because by having a better understanding of the factors that influence chocolate quality, they can improve their products, stay competitive and propose better products for customers.
