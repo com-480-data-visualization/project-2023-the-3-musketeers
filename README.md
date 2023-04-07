@@ -83,8 +83,9 @@ Additionally, here are some information regarding the ingredients and the top 15
 
 ![Most Used Ingredients in Chocolate](https://user-images.githubusercontent.com/72870726/230518216-e3879ec5-aa2e-4ff4-89a9-4ff3b860f575.png)
 
-![Top 15 Most Present Characteristics](https://user-images.githubusercontent.com/72870726/230518390-b07ec790-1386-4c23-b15b-7368968e55a3.png)
+![Top 15 Most Present Characteristics](https://user-images.githubusercontent.com/72870726/230519592-0164f322-50fe-40c0-aafe-e0957590440d.png)
 
+We see from here that there is a wide range of flavors available for chocolate. It would be interesting to further investigate the relationship between the flavor profile and type of bean used and the ingredients present in the chocolate bar.
 
 We think that understanding these insights is important for chocolate manufacturers, distributors, and retailers who want to improve the quality of their products and make informed decisions about cocoa bean sourcing and type. Customers who want to buy high-quality chocolate can also benefit from these information.
 
