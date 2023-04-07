@@ -54,9 +54,10 @@ Our dataset consists of 2632 tuples. We wanted to get an initial understanding a
 Then we visualize some important variables to have some statistical insight on the data.
 
 ![loc type](https://user-images.githubusercontent.com/116460894/230110520-6ef6dd69-b6ef-457c-84d8-92132cc1e3ca.jpg)
-![image](https://user-images.githubusercontent.com/72870726/230516957-6029c526-605c-4ff2-a002-c745796686af.png)
-![rating_distribution](https://user-images.githubusercontent.com/72870726/230517392-9118e2f1-b054-4db3-b1aa-9e1e9c64ce88.png)
 
+![country_bean_distribution](https://user-images.githubusercontent.com/72870726/230517863-1bc1f756-c9b4-47a8-a2ea-78d740a8f8fb.png)
+![Top 15 Most Present Characteristics](https://user-images.githubusercontent.com/72870726/230517868-a9713dcb-a9b9-4cfd-96f3-405d8409d2f2.png)
+![top15_companies](https://user-images.githubusercontent.com/72870726/230517877-f2c0b846-b24a-4554-a050-fa3e3bb132c6.png)
 
 From the visualization, we found that:
 - The majority of the companies are from the United States;
@@ -64,11 +65,17 @@ From the visualization, we found that:
 - The majority of cocoa beans in the dataset do not have a recorded type, followed by Trinitario beans.
 
 <img src="https://user-images.githubusercontent.com/116460894/230115519-dc578f9f-b8e7-4363-8502-267c7b2d3e80.jpg" alt="Cocoa Percent" width='500'><img src="https://user-images.githubusercontent.com/116460894/230112879-852d374c-d5c3-4cea-8f65-afcb3fdfc281.jpg" alt="Cocoa Percent vs  Rating" width=500>
+![Rating_distribution](https://user-images.githubusercontent.com/72870726/230517900-3161575d-65c9-43f2-853f-93ec49c9f28e.png)
+![cocoa_distribution](https://user-images.githubusercontent.com/72870726/230517921-44825fc9-3100-4a5a-a520-906c12c98dcc.png)
+![Cocoa Percent vs  Rating](https://user-images.githubusercontent.com/72870726/230517926-1e727b13-5627-4b31-9cf2-336e7e4061c1.jpg)
+
 
 Next, we examined the relationship between cocoa percent and rating:
 - Most of the chocolate bars reviewed contains 70% of cocoa;
 - There's a slight negative correlation between Cocoa Percent and Rating.
 - The average rating of all chocolate bars in the dataset is 3.2/5
+![Most Used Ingredients in Chocolate](https://user-images.githubusercontent.com/72870726/230517944-9708a5fa-b0dd-4ba0-b172-150ae50a523f.png)
+![Top 15 Most Present Characteristics](https://user-images.githubusercontent.com/72870726/230517964-98057abd-f63d-4715-9265-076d0e87cce8.png)
 
 
 We think that understanding these insights is important for chocolate manufacturers, distributors, and retailers who want to improve the quality of their products and make informed decisions about cocoa bean sourcing and type. Customers who want to buy high-quality chocolate can also benefit from these information.
