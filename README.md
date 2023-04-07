@@ -57,7 +57,8 @@ Then we visualize some important variables to have some statistical insight on t
 
 ![company_location](https://user-images.githubusercontent.com/72870726/230518159-a09d8110-ee4c-44c8-8493-10961640f324.png)
 
-![Top 15 Most Present Characteristics](https://user-images.githubusercontent.com/72870726/230518165-6217cda8-613d-461b-9cbb-798e6c97b1be.png)
+![top15_companies](https://user-images.githubusercontent.com/72870726/230518376-c2afc5b2-62a0-4afd-987a-844949796630.png)
+
 
 
 From the visualization, we found that:
@@ -80,7 +81,8 @@ Next, we examined the relationship between cocoa percent and rating:
 
 ![Most Used Ingredients in Chocolate](https://user-images.githubusercontent.com/72870726/230518216-e3879ec5-aa2e-4ff4-89a9-4ff3b860f575.png)
 
-![top15_companies](https://user-images.githubusercontent.com/72870726/230518222-f7068067-e383-47d0-a690-e680b2d19d83.png)
+![Top 15 Most Present Characteristics](https://user-images.githubusercontent.com/72870726/230518390-b07ec790-1386-4c23-b15b-7368968e55a3.png)
+
 
 
 We think that understanding these insights is important for chocolate manufacturers, distributors, and retailers who want to improve the quality of their products and make informed decisions about cocoa bean sourcing and type. Customers who want to buy high-quality chocolate can also benefit from these information.
