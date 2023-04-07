@@ -55,6 +55,7 @@ Then we visualize some important variables to have some statistical insight on t
 
 ![loc type](https://user-images.githubusercontent.com/116460894/230110520-6ef6dd69-b6ef-457c-84d8-92132cc1e3ca.jpg)
 ![image](https://user-images.githubusercontent.com/72870726/230516957-6029c526-605c-4ff2-a002-c745796686af.png)
+![rating_distribution](https://user-images.githubusercontent.com/72870726/230517392-9118e2f1-b054-4db3-b1aa-9e1e9c64ce88.png)
 
 
 From the visualization, we found that:
