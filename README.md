@@ -54,6 +54,8 @@ Our dataset consists of 2632 tuples. We wanted to get an initial understanding a
 Then we visualize some important variables to have some statistical insight on the data.
 
 ![loc type](https://user-images.githubusercontent.com/116460894/230110520-6ef6dd69-b6ef-457c-84d8-92132cc1e3ca.jpg)
+![image](https://user-images.githubusercontent.com/72870726/230516957-6029c526-605c-4ff2-a002-c745796686af.png)
+
 
 From the visualization, we found that:
 - The majority of the companies are from the United States;
