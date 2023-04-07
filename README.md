@@ -17,7 +17,7 @@ Please, fill the following sections about your project.
 
 *(max. 2000 characters per section)*
 
-### Dataset🍫
+### Dataset 🍫 
 
 <!-- > Find a dataset (or multiple) that you will explore. Assess the quality of the data it contains and how much preprocessing / data-cleaning it will require before tackling visualization. We recommend using a standard dataset as this course is not about scraping nor data processing.
 >
