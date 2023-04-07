@@ -64,7 +64,7 @@ Then we visualize some important variables to have some statistical insight on t
 From the visualization, we found that:
 - The majority of the companies are from the United States;
 - However, the beans origins are mainly Central and South America;
-- The majority of cocoa beans in the dataset do not have a recorded type, followed by Trinitario beans.
+- Soma is the company that sells the most chocolate bars, the other 14 biggest competitors sell approximately the same amount.
 
 
 
@@ -77,12 +77,13 @@ From the visualization, we found that:
 Next, we examined the relationship between cocoa percent and rating:
 - Most of the chocolate bars reviewed contains 70% of cocoa;
 - There's a slight negative correlation between Cocoa Percent and Rating.
-- The average rating of all chocolate bars in the dataset is 3.2/5
+- The average rating of all chocolate bars in the dataset is 3.2/5 and doesn't exceed 4
+
+Additionally, here are some information regarding the ingredients and the top 15 charcateristics found in these chocolate bars: 
 
 ![Most Used Ingredients in Chocolate](https://user-images.githubusercontent.com/72870726/230518216-e3879ec5-aa2e-4ff4-89a9-4ff3b860f575.png)
 
 ![Top 15 Most Present Characteristics](https://user-images.githubusercontent.com/72870726/230518390-b07ec790-1386-4c23-b15b-7368968e55a3.png)
-
 
 
 We think that understanding these insights is important for chocolate manufacturers, distributors, and retailers who want to improve the quality of their products and make informed decisions about cocoa bean sourcing and type. Customers who want to buy high-quality chocolate can also benefit from these information.
