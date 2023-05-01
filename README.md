@@ -24,16 +24,16 @@ Please, fill the following sections about your project.
 > Hint: some good pointers for finding quality publicly available datasets ([Google dataset search](https://datasetsearch.research.google.com/), [Kaggle](https://www.kaggle.com/datasets), [OpenSwissData](https://opendata.swiss/en/), [SNAP](https://snap.stanford.edu/data/) and [FiveThirtyEight](https://data.fivethirtyeight.com/)), you could use also the DataSets proposed by the ENAC (see the Announcements section on Zulip). -->
 
 As Switzerland is renowned for its chocolate, we embarked on a project to investigate the factors that influence the quality of chocolate. To achieve this goal, we utilized the [Chocolate Bar Ratings](http://flavorsofcacao.com/chocolate_database.html), which comprises the ratings given by experts to over 2600 chocolate bars using the Flavors of Cacao Rating System. This system rates each chocolate on a scale from Unpleasant (rating=1) to Elite (rating=5). The dataset also contains additional background information, such as the chocolate maker, specific bean origin, broad bean origin, REF value, review date, cocoa percentage, company location, date of review, company region, ingredients and most memorable characteristics. This dataset can be stored in a csv file consisting of 2632 rows and 10 columns:
-_REF: A numeric value that uniquely identifies each chocolate bar in the database.
-_Company (Manufacturer): The name of the company that produced the chocolate bar.
-_Company Location: The location of the company that produced the chocolate bar.
-_Review Date: The year in which the chocolate bar was rated.
-_Country of Bean Origin: The country where the cocoa beans used in the chocolate bar were grown.
-_Specific Bean Origin or Bar Name: The specific region, farm, or name of the cocoa beans used in the chocolate bar, if available.
-_Cocoa Percent: The percentage of cocoa solids in the chocolate bar.
-_Ingredients: A description of the ingredients used in the chocolate bar.
-_Most Memorable Characteristics: A free-form text field where reviewers can describe the most memorable characteristics of the chocolate bar.
-_Rating: A numeric rating on a scale from 1 (Unpleasant) to 5 (Elite), indicating the overall quality of the chocolate bar.
+* REF: A numeric value that uniquely identifies each chocolate bar in the database.
+* Company (Manufacturer): The name of the company that produced the chocolate bar.
+* Company Location: The location of the company that produced the chocolate bar.
+* Review Date: The year in which the chocolate bar was rated.
+* Country of Bean Origin: The country where the cocoa beans used in the chocolate bar were grown.
+* Specific Bean Origin or Bar Name: The specific region, farm, or name of the cocoa beans used in the chocolate bar, if available.
+* Cocoa Percent: The percentage of cocoa solids in the chocolate bar.
+* Ingredients: A description of the ingredients used in the chocolate bar.
+* Most Memorable Characteristics: A free-form text field where reviewers can describe the most memorable characteristics of the chocolate bar.
+* Rating: A numeric rating on a scale from 1 (Unpleasant) to 5 (Elite), indicating the overall quality of the chocolate bar.
 
 The dataset comprises three different data types: *int* (for REF value and review data), *float* (for ratings) and *str* (for all other attributes). However, we observed that 87 out of 2632 data points for ingredients were null. Several approaches could be employed to address missing values for this variable, including inferring them from the specific bean origin. Overall, the dataset is relatively clean.
 
