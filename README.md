@@ -112,7 +112,7 @@ We took inspiration from following visualisations:
 ## Milestone 2 (7th May, 5pm)
 
 **10% of the final grade**
-
+[Google doc link](https://docs.google.com/document/d/1lCnjaaWnchywwXml7JmDGbghAELjbt6UbifbG0h6WqU/edit?usp=sharing)
 
 ## Milestone 3 (4th June, 5pm)
 
