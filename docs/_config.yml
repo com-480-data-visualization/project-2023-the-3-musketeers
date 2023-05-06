@@ -5,7 +5,10 @@ title: How do you like your chocolate?
 tagline: COM-480 Project
 description: >- # this means to ignore newlines until "baseurl:"
   This website was created by Dana Kalaaji, Dong Chu, and Zhan Li. It is our submissiom for the COM-480 Data Visualization project.
-cover: ressources/cover.jpg
+cover: _ressources/cover.jpg
+
+categories_path: /categories/
+tags_path: /tags/
 
 remote_theme: vfvong/jekyll-theme-quartz
 plugins:
