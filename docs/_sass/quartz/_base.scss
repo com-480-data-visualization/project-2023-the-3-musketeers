@@ -12,7 +12,6 @@ body {
   font-family: var(--body-font);
   font-size: var(--body-font-size);
   line-height: var(--line-height);
-  border: 15px solid green;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -161,6 +160,7 @@ a[href^="#fnref:"] {
 }
 
 #markdown-toc {
+  border: 15px solid green;
   font-size: .8em;
   padding: 2em 3em;
   margin: 2em 0;
