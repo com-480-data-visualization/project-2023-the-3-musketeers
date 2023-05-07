@@ -37,9 +37,12 @@ a.post-category {
 }
 
 a.post-tag {
-  background-color: var(--accent-color);
-  text-decoration: none;
-  color: var(--body-fg);
+  &:hover,
+  &:focus {
+    text-decoration: none;
+    color: var(--body-fg);
+    opacity: 1;
+  }
 }
 
 .post-cover {

@@ -28,12 +28,7 @@
 
   a {
     color: var(--body-color-light);
-
-    &:hover,
-    &:focus {
-      text-decoration: none;
-      background-color: var(--body-fg);
-    }
+    background-color: var(--body-fg);
   }
 }
 
