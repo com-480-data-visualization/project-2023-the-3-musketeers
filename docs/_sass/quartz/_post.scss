@@ -20,7 +20,6 @@
 }
 
 .post-meta-bottom {
-  background-color: var(--accent-color);
   margin: var(--spacing) 0;
 }
 
@@ -31,8 +30,7 @@ a.post-category {
 }
 
 .post-tag {
-  background-color: var(--accent-color);
-  color: var(--body-bg);
+  color: var(--accent-color);
   padding: .2em .5em;
   border-radius: var(--border-radius);
   opacity: .7;
