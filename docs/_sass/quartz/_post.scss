@@ -1,0 +1,106 @@
+.page-title,
+.post-title {
+  text-align: center;
+  padding: var(--spacing) 0;
+}
+
+.post-title {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.post-meta {
+  color: var(--body-color-light);
+  font-size: .8em;
+}
+
+.post-meta-top {
+  text-align: center;
+  margin-top: calc(var(--spacing) * 4);
+}
+
+.post-meta-bottom {
+  margin: var(--spacing) 0;
+}
+
+a.post-category {
+  color: inherit;
+
+  &:hover,
+  &:focus {
+    text-decoration: none;
+    color: var(--body-color-dark);
+  }
+}
+
+.post-tag {
+  background-color: var(--accent-color);
+  color: var(--body-bg);
+  padding: .2em .5em;
+  border-radius: var(--border-radius);
+  opacity: .7;
+}
+
+a.post-tag {
+  &:hover,
+  &:focus {
+    text-decoration: none;
+    color: var(--body-fg);
+    opacity: 1;
+  }
+}
+
+.post-cover {
+  background: var(--body-fg) center center;
+  background-size: cover;
+  margin: 0 -12vw var(--spacing);
+  height: 400px;
+  border-radius: var(--border-radius);
+}
+
+.post-content {
+  background-color: var(--body-bg);
+  min-height: 230px;
+}
+
+.message {
+  padding: var(--spacing);
+  border-radius: var(--border-radius);
+  background-color: var(--message-color);
+  color: var(--body-bg);
+}
+
+@media screen and (min-width: $screen-tablet) {
+  .page,
+  .post {
+    padding: 0 var(--spacing);
+  }
+}
+
+@media screen and (min-width: $screen-laptop) {
+  .page,
+  .post {
+    padding: 0 calc(var(--spacing) * 2);
+  }
+
+  .post-meta {
+    padding-left: calc(var(--spacing) * 2);
+    padding-right: calc(var(--spacing) * 2);
+  }
+
+  .post-cover {
+    height: 600px;
+    margin-bottom: -160px;
+  }
+
+  .post-content {
+    padding: var(--spacing) calc(var(--spacing) * 2);
+  }
+}
+
+@media screen and (min-width: $screen-desktop) {
+  .page,
+  .post {
+    padding: 0 calc(var(--spacing) * 4);
+  }
+}
