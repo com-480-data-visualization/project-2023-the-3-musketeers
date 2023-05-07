@@ -114,7 +114,7 @@ We took inspiration from following visualisations:
 **10% of the final grade**
 
 
-[Google doc link](https://docs.google.com/document/d/1lCnjaaWnchywwXml7JmDGbghAELjbt6UbifbG0h6WqU/edit?usp=sharing)
+[Our Website](https://com-480-data-visualization.github.io/project-2023-the-3-musketeers/)
 
 ## Milestone 3 (4th June, 5pm)
 
