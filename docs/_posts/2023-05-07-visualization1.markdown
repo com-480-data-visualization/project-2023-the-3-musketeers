@@ -4,21 +4,10 @@ title:  "Visualization 1"
 date:   2023-05-07 13:00:00 +0200
 categories: Visualization
 ---
-Just a test page.
 
-Code test:
+#What do we want to show and why ? 
 
-{% highlight python %}
-def print_name(name):
-  printf(f"Hi, {name}")
+#The visualization: Flow map: origin country to company country 
+![flow map origin country to company country](viz1.jpeg)
 
-print_name('Tom')
-{% endhighlight %}
-
-Test #2:
-```
-def print_name(name):
-  printf(f"Hi, {name}")
-
-print_name('Tom')
-```
+#Some of the things can we infer from it:
