@@ -25,6 +25,7 @@
 
 a.post-category {
   color: inherit;
+  background-color: var(--accent-color);
 
   &:hover,
   &:focus {
@@ -42,8 +43,6 @@ a.post-category {
 }
 
 a.post-tag {
-  color: var(--body-fg);
-  
   &:hover,
   &:focus {
     text-decoration: none;
