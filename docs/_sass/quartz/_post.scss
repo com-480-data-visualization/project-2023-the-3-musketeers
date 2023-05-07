@@ -38,13 +38,8 @@ a.post-category {
 
 a.post-tag {
   background-color: var(--accent-color);
-
-  &:hover,
-  &:focus {
-    text-decoration: none;
-    color: var(--body-fg);
-    opacity: 1;
-  }
+  text-decoration: none;
+  color: var(--body-fg);
 }
 
 .post-cover {
