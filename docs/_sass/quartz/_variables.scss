@@ -13,8 +13,8 @@ $screen-desktop: 1024px;
   --body-bg:          #7E5A3F; // milk chocolate brown
   --body-fg:          #F1E9D4; // vanilla cream
   --body-color-light: #7E5A3F; // milk chocolate brown
-  --body-color:       #2A1D0C; // dark chocolate brown
-  --body-color-dark:  #7E5A3F; // milk chocolate brown
+  --body-color:       #462620; // dark chocolate brown
+  --body-color-dark:  #FF00FF; // milk chocolate brown
   --accent-color:     #384e1d; // earthy green
   --message-color:    #384e1d; // earthy green
 
@@ -25,9 +25,9 @@ $screen-desktop: 1024px;
   --body-font-size:   16px;
   --border-radius:    .5em;
 
-  --header-color:      var(--oc-white);
-  --header-color-dark: var(--oc-gray-4);
-  --header-bg:         var(--oc-black);
+  --header-color:      #FF0000;
+  --header-color-dark: #00FF00;
+  --header-bg:         #0000FF;
 
   --post-card-shadow:        rgba(39, 44, 49, 0.06) 8px 14px 38px, rgba(39, 44, 49, 0.03) 1px 3px 8px;
   --post-card-hover-shadow:  0 0 1px rgba(39, 44, 49, 0.10), 0 3px 16px rgba(39, 44, 49, 0.07);
