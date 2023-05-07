@@ -4,21 +4,12 @@ title:  "Visualization 2"
 date:   2023-05-07 14:00:00 +0200
 categories: Visualization
 ---
-Just a test page.
 
-Code test:
+## Rate with respect to cocoa percentage race bar chart
 
-{% highlight python %}
-def print_name(name):
-  printf(f"Hi, {name}")
+### What do we want to show with this visualization ? 
 
-print_name('Tom')
-{% endhighlight %}
+### The visualization: 
+![visualization 2](viz2.jpeg)
 
-Test #2:
-```
-def print_name(name):
-  printf(f"Hi, {name}")
-
-print_name('Tom')
-```
+### Some of the things can we infer from it:
