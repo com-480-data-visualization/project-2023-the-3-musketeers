@@ -24,14 +24,9 @@
 }
 
 a.post-category {
-  color: inherit;
   background-color: var(--body-fg);
-
-  &:hover,
-  &:focus {
-    text-decoration: none;
-    color: var(--body-color-dark);
-  }
+  color: var(--accent-color);
+  border-radius: 3px;
 }
 
 .post-tag {
