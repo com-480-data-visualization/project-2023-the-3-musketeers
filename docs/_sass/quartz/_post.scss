@@ -30,13 +30,15 @@ a.post-category {
 }
 
 .post-tag {
-  color: var(--accent-color);
+  color: var(--body-bg);
   padding: .2em .5em;
   border-radius: var(--border-radius);
   opacity: .7;
 }
 
 a.post-tag {
+  color: var(--accent-color);
+
   &:hover,
   &:focus {
     text-decoration: none;
