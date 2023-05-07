@@ -10,7 +10,6 @@
 }
 
 .post-meta {
-  background-color: var(--accent-color);
   color: var(--body-color-light);
   font-size: .8em;
 }
@@ -21,6 +20,7 @@
 }
 
 .post-meta-bottom {
+  background-color: var(--accent-color);
   margin: var(--spacing) 0;
 }
 
