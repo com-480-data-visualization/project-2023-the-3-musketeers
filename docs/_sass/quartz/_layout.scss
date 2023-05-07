@@ -1,0 +1,19 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main {
+  z-index: 10;
+}
+
+.outer {
+  padding: 0 4vw;
+}
+
+.inner {
+  margin: 0 auto;
+  max-width: $screen-desktop;
+  width: 100%;
+}
