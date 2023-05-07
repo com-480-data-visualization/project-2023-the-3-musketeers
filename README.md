@@ -113,7 +113,7 @@ We took inspiration from following visualisations:
 
 **10% of the final grade**
 
-[Milestone 2 report](./docs/Data viz milestone 2.pdf)
+[Milestone 2 report](https://github.com/com-480-data-visualization/project-2023-the-3-musketeers/docs/Data-viz-milestone-2.pdf)
 
 [Our Website](https://com-480-data-visualization.github.io/project-2023-the-3-musketeers/)
 
