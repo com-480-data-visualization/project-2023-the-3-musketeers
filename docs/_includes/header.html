@@ -1,0 +1,29 @@
+{% assign cover = site.cover %}
+{% if page.image %}
+  {% assign cover = page.image %}
+{% endif %}
+<header class="site-header large-header"{% if cover %} style="background-image: url({{ cover | relative_url }})"{% endif %}>
+  <div class="site-header-shield">
+    <div class="outer">
+      <div class="inner">
+        <div class="site-header-content">
+          <h2 class="site-title">
+            <a href="{{ '/' | relative_url }}">{{ site.title }}</a>
+          </h2>
+          {% if site.tagline %}
+            <h5 class="site-tagline">{{ site.tagline }}</h5>
+          {% endif %}
+        </div>
+        {% if site.data.navigation %}
+          <nav class="nav">
+            {% for item in site.data.navigation %}
+              <a class="nav-item {% if page.url == item.url %}active{% endif %}" href="{{ item.url | relative_url }}">
+                {{ item.title }}
+              </a>
+            {% endfor %}
+          </nav>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</header>
