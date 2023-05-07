@@ -1,14 +1,10 @@
 ---
 layout: post
-title:  "Introduction!"
+title:  "Spill the beans!"
 date:   2023-05-06 00:04:00 +0200
-categories: Visualization
+categories: Introduction
 ---
 You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run `jekyll serve`, which launches a web server and auto-regenerates your site when a file is updated.
-
-{% highlight ruby %}
-ou’ll find this post in your  directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run, which launches a web server and auto-regenerates your site when a file is updated.
-{% endhighlight %}
 
 Jekyll requires blog post files to be named according to the following format:
 
