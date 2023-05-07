@@ -10,6 +10,6 @@ categories: Visualization
 ### What do we want to show with this visualization ? 
 
 ### The visualization: 
-![visualization 1](viz1.jpeg)
+![visualization 1](../viz1.jpeg)
 
 ### Some of the things can we infer from it:
