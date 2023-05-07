@@ -10,6 +10,6 @@ categories: Visualization
 ### What do we want to show with this visualization ? 
 
 ### The visualization: 
-![visualization 2](viz2.jpeg)
+![visualization 2](https://raw.githubusercontent.com/com-480-data-visualization/project-2023-the-3-musketeers/master/docs/viz2.jpeg)
 
 ### Some of the things can we infer from it:
