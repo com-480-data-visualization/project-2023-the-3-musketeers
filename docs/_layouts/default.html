@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: 'en' }}">
+
+  {% include head.html %}
+
+  <body>
+    <div class="wrapper">
+
+      {% if page.layout == "default" or page.layout == "home" %}
+        {% include header.html %}
+      {% else %}
+        {% include header-small.html %}
+      {% endif %}
+
+      <main class="main outer">
+        <div class="inner">
+          {{ content }}
+        </div>
+      </main>
+
+      {% include footer.html %}
+    </div>
+
+    {% if page.math %}
+      {% include mathjax.html %}
+    {% endif %}
+
+    {% if jekyll.environment == 'production' and site.google_analytics %}
+      {% include google-analytics.html %}
+    {% endif %}
+  </body>
+</html>
