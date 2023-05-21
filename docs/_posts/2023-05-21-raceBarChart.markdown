@@ -3,10 +3,11 @@ layout: post
 title:  "Race Bar Chart"
 date:   2023-05-21 
 categories: Visualization
+preview: /racebarPreview.jpg
 ---
 
 
-## Ratings ~ Cocoa Percentage
+## How the rating distribution changes with cocoa percent？
 
 Watch as the bars race across your screen, enabling you to perceive the interplay between cocoa content and the ultimate quality of a chocolate bar.
 
