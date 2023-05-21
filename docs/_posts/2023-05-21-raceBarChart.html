@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="zh-CN" style="height: 100%">
+<head>
+  <meta charset="utf-8">
+  <style>
+
+    .controls {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .slider-container input[type=range] {
+      -webkit-appearance: none;
+      width: 500px;
+      height: 15px;
+      background: #FFEAD2;
+      outline: none;
+      opacity: 1;
+      -webkit-transition: .2s;
+      transition: opacity .2s;
+      border-radius: 10px;
+    }
+
+
+    .slider-container input[type=range]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 25px;
+      height: 25px;
+      background: saddlebrown;
+      cursor: pointer;
+      border-radius: 50%;
+    }
+
+    .slider-container input[type=range]::-moz-range-thumb {
+      width: 25px;
+      height: 25px;
+      background: #F8F6F4;
+      cursor: pointer;
+      opacity: 0.7;
+      border-radius: 50%;
+    }
+
+    .playpause label {
+      display: block;
+      box-sizing: border-box;
+      width: 0;
+      height: 50px;
+      border-color: transparent transparent transparent saddlebrown;
+      transition: 100ms all ease;
+      cursor: pointer;
+      border-style: double;
+      border-width: 0px 0 0px 50px;
+    }
+
+    .playpause input[type="checkbox"] {
+      position: absolute;
+      left: -9999px;
+    }
+
+    .playpause input[type="checkbox"]:checked + label {
+      border-style: solid;
+      border-width: 25px 0 25px 42px;
+    }
+
+    .playpause input[type="checkbox"]:focus + label {
+      box-shadow: 0 0 5px lightblue;
+    }
+
+    .playpause, .slider-container {
+      margin: 0 15px;
+    }
+
+  </style>
+</head>
+<body style="height: 80%; margin: 10px">
+<div id="container" style="height: 100%"></div>
+<div class="controls">
+  <div class="playpause">
+    <input type="checkbox" value="None" id="playpause" name="check" />
+    <label for="playpause" tabindex=1></label>
+  </div>
+  <div class="slider-container">
+    <label for="cocoa-slider">Cocoa Percentage:</label>
+    <input type="range" min="60" max="100" value="60" id="cocoa-slider" name="cocoa-slider">
+  </div>
+</div>
+
+
+<script type="text/javascript" src="https://fastly.jsdelivr.net/npm/jquery"></script>
+<script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5.4.2/dist/echarts.min.js"></script>
+
+<script type="text/javascript">
+  var dom = document.getElementById('container');
+  var myChart = echarts.init(dom, null, {
+    renderer: 'canvas',
+    useDirtyRect: false
+  });
+  var app = {};
+
+  var option;
+
+  const updateFrequency = 1400;
+  const dimension = 2;
+  const ratingColors = {
+    "4-5": '#FFC3A1',
+    "3.5-4": '#F0997D',
+    "3-3.5": '#CC704B',
+    "2.5-3": '#A64B2A',
+    "2-2.5": '#8E3200',
+    "0-2": '#850000',
+  };
+
+  let currentIndex = 0;
+  let isPaused = false;
+
+  Promise.all([
+    fetch('./flags.json')
+      .then(response => response.json()),
+    fetch('./data.json')
+      .then(response => response.json())
+  ])
+    .then(function ([flags, data]) {
+      const percents = [];
+      console.log(data.length)
+      for (let i = 0; i < data.length; ++i) {
+        if (percents.length === 0 || percents[percents.length - 1] !== data[i][0]) {
+          percents.push(data[i][0]);
+        }
+      }
+      function getFlag(range) {
+        if (!range) {
+          return '';
+        }
+        return (
+          flags.find(function (item) {
+            return item.name == range;
+          }) || {}
+        ).emoji;
+      }
+      let startpercent = percents[0];
+      option = {
+        grid: {
+          top: 5,
+          bottom: 30,
+          left: 150,
+          right: 80
+        },
+        xAxis: {
+          max: 'dataMax',
+          axisLabel: {
+            formatter: function (n) {
+              return n;
+            }
+            ,
+            axisTick: {
+              show: true
+            },
+          }
+        },
+        dataset: {
+          source: data.slice(1).filter(function (d) {
+            return d[0] === startpercent;
+          })
+        },
+        yAxis: {
+          type: 'category',
+          inverse: true,
+          max: 4,
+          axisLabel: {
+            show: true,
+            fontSize: 14,
+            formatter: function (value) {
+              return value + '{flag|' + getFlag(value) + '}';
+            },
+            rich: {
+              flag: {
+                fontSize: 25,
+                padding: 5
+              }
+            }
+          },
+          animationDuration: 300,
+          animationDurationUpdate: 300
+        },
+        series: [
+          {
+            realtimeSort: true,
+            seriesLayoutBy: 'column',
+            type: 'bar',
+            itemStyle: {
+              color: function (param) {
+                return ratingColors[param.value[1]] || '#5470c6';
+              }
+            },
+            encode: {
+              x: dimension,
+              y: 1
+            },
+            label: {
+              show: true,
+              precision: 1,
+              position: 'right',
+              valueAnimation: true,
+              fontFamily: 'monospace'
+            }
+          }
+        ],
+
+        animationDuration: 0,
+        animationDurationUpdate: updateFrequency,
+        animationEasing: 'linear',
+        animationEasingUpdate: 'linear',
+        graphic: {
+          elements: [
+            {
+              type: 'text',
+              right: 160,
+              bottom: 60,
+              style: {
+                text: startpercent,
+                font: 'bolder 80px monospace',
+                fill: 'rgba(100, 100, 100, 0.25)'
+              },
+              z: 100
+            }
+          ]
+        }
+      };
+      myChart.setOption(option);
+
+      let cocoaSlider = document.getElementById('cocoa-slider');
+
+      function updatePercent() {
+        if (isPaused) {
+          return;
+        }
+        let percent = percents[currentIndex];
+        let source = data.filter(function (d) {
+          return d[0] === percent;
+        });
+        option.series[0].data = source;
+        option.graphic.elements[0].style.text = percent;
+        myChart.setOption(option);
+
+        let cocoaPercent = ((currentIndex / (percents.length - 1)) * 40) + 60;
+        cocoaSlider.value = cocoaPercent;
+
+        if (currentIndex === percents.length - 1) {
+          cocoaSlider.value = 100;
+        }
+
+        currentIndex = (currentIndex + 1) % percents.length;
+
+      }
+
+      document.getElementById('playpause').addEventListener('click', function() {
+        isPaused = !isPaused;
+      });
+
+      cocoaSlider.addEventListener('input', function() {
+        let cocoaPercent = cocoaSlider.value;
+
+        let animationIndex = Math.floor(((cocoaPercent - 60) / 40) * percents.length);
+        currentIndex = animationIndex;
+
+        let convertedPercent = ((cocoaPercent - 60) / 40) * 100;
+        document.getElementById('cocoa-percent').style.width = convertedPercent + '%';
+      });
+
+      setInterval(updatePercent, updateFrequency);
+
+    });
+
+  if (option && typeof option === 'object') {
+    myChart.setOption(option);
+  }
+
+  window.addEventListener('resize', myChart.resize);
+</script>
+</body>
+</html>
