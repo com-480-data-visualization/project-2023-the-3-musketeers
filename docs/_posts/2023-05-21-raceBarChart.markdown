@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Visualization 2"
+title:  "raceBarChart"
 date:   2023-05-21 
 categories: Visualization
 ---
