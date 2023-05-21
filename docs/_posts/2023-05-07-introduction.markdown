@@ -8,7 +8,8 @@ image: /intro_cover.jpg
 
 
 ### Welcome to the Chocolate Quality Exploration Platform!
-### Just click on the section you are interested in!
+
+[//]: # (### Just click on the section you are interested in!)
 
 We are devoted to enriching your understanding of chocolate – a delight that never ceases to charm! Our project revolves around exploring the intricate factors that influence chocolate quality, aiding chocolate producers in making informed decisions, and educating consumers about the fascinating world of the chocolate industry.
 
