@@ -10,6 +10,7 @@ categories: Visualization
 ### What do we want to show with this visualization ? 
 
 ### The visualization: 
-![visualization 3](https://raw.githubusercontent.com/com-480-data-visualization/project-2023-the-3-musketeers/master/docs/viz3.jpeg)
+<!-- ![visualization 3](https://raw.githubusercontent.com/com-480-data-visualization/project-2023-the-3-musketeers/master/docs/viz3.jpeg) -->
+{% include wordCloud.html %} 
 
 ### Some of the things can we infer from it: 

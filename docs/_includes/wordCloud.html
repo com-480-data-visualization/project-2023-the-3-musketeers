@@ -1,0 +1,199 @@
+<html lang="zh-CN" style="height: 100%">
+<head>
+  <!-- <script src="https://cdn.anychart.com/releases/v8/js/anychart-base.min.js"></script> -->
+  <!-- <script src="https://cdn.anychart.com/releases/v8/js/anychart-tag-cloud.min.js"></script> -->
+  <meta charset="utf-8">
+<style>
+  .controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .slider-container input[type=range] {
+    -webkit-appearance: none;
+    width: 500px;
+    height: 15px;
+    background: #f7cdbc;
+    outline: none;
+    opacity: 1;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+    border-radius: 10px;
+  }
+
+
+  .slider-container input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    background: saddlebrown;
+    cursor: pointer;
+    border-radius: 50%;
+  }
+
+  .slider-container input[type=range]::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    background: #FFC3A1;
+    cursor: pointer;
+    opacity: 0.7;
+    border-radius: 50%;
+  }
+
+  .playpause label {
+    display: block;
+    box-sizing: border-box;
+    width: 0;
+    height: 50px;
+    border-color: transparent transparent transparent saddlebrown;
+    transition: 100ms all ease;
+    cursor: pointer;
+    border-style: double;
+    border-width: 0px 0 0px 50px;
+  }
+
+  .playpause input[type="checkbox"] {
+    position: absolute;
+    left: -9999px;
+  }
+
+  .playpause input[type="checkbox"]:checked + label {
+    border-style: solid;
+    border-width: 25px 0 25px 42px;
+  }
+
+  .playpause input[type="checkbox"]:focus + label {
+    box-shadow: 0 0 5px lightblue;
+  }
+
+  .playpause, .slider-container {
+    margin: 0 15px;
+  }
+
+  .word-cloud{
+    width: 600px;
+    height: 400px;
+    background: #766f6a;
+  } 
+</style>
+</head>
+<body style="margin: 10px">
+<div id="container" style="height: 400px">
+  <h3>Word Cloud</h3>
+  <div id="word-cloud">
+  </div>
+</div>
+ 
+<!-- <div class="controls">
+  <div class="playpause">
+    <input type="checkbox" value="None" id="playpause" name="check" />
+    <label for="playpause" tabindex=1></label>
+  </div>
+  <div class="slider-container">
+    <label for="cocoa-slider">Cocoa Percentage:</label>
+    <input type="range" min="60" max="100" value="60" id="cocoa-slider" name="cocoa-slider">
+  </div>
+</div> -->
+
+<script type="text/javascript" src="https://fastly.jsdelivr.net/npm/jquery"></script>
+<script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5.4.2/dist/echarts.min.js"></script>
+<script src="https://d3js.org/d3.v4.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/holtzy/D3-graph-gallery@master/LIB/d3.layout.cloud.js"></script>
+<script type="text/javascript">
+// List of words
+const myWords = [
+    {text: "Hello", value:6260},
+    {text: "happy", value:5370},
+    {text: "beautiful", value:2480},
+    {text: "rainbow", value:4350},
+    {text: "unicorn", value:1250},
+    {text: "glitter", value:3140},
+    {text: "happy", value:990},
+    {text: "grill", value:2000},
+    {text: "blue", value:2900},
+    {text: "nice", value:590},
+    {text: "pie", value:4230}];
+  
+console.log(myWords)
+var v_min = d3.min(myWords, function(d) {return(d.value);});
+var v_max = d3.max(myWords, function(d) {return(d.value);});
+var scale = d3.scaleLinear().domain([v_min,v_max]).range([20,30]);
+myWords.map(function(obj) {obj.value = Math.round(scale(obj.value));});
+
+
+var fill = d3.scaleOrdinal(d3.schemeCategory20);
+// set the dimensions and margins of the graph
+var margin = {top: 10, right: 10, bottom: 10, left: 10},
+    width = 600 - margin.left - margin.right,
+    height = 400 - margin.top - margin.bottom;
+
+// append the svg object to the body of the page
+var svg = d3.select("#word-cloud").append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform",
+          "translate(" + margin.left + "," + margin.top + ")");
+
+// Constructs a new cloud layout instance. It run an algorithm to find the position of words that suits your requirements
+// Wordcloud features that are different from one word to the other must be here
+var layout = d3.layout.cloud()
+  .size([width, height])
+  .words(myWords)
+  .padding(5)        //space between words
+  // .rotate(-45)       // rotation angle in degrees
+  .rotate(function() { return ~~(Math.random() * 2) * 90; })
+  // .fontSize(20)      // font size of words
+  .on("end", draw);
+layout.start();
+
+// This function takes the output of 'layout' above and draw the words
+// Wordcloud features that are THE SAME from one word to the other can be here
+function draw(words) {
+  svg
+    .append("g")
+      .attr("transform", "translate(" + layout.size()[0] / 2 + "," + layout.size()[1] / 2 + ")")
+      .selectAll("text")
+        .data(words)
+        .enter()
+        .append("text")
+        .text((d) => d.text)
+        .style("font-size", (d) => d.value)
+        // .style("fill", "#69b3a2")
+        .style("fill", (d, i) => fill(i))
+        .attr("text-anchor", "middle")
+        .style("font-family", "Impact")
+        .attr("transform", function(d) {
+          return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
+        })
+        .on("mouseover", handleMouseOver )
+        .on("mouseout", handleMouseOut)
+        .text(function(d) { return d.text; });
+
+        function handleMouseOver(d) {
+          console.log(this);
+          console.log(d);
+          d3.select(this)
+          // .classed("word-hovered", true)
+          // .style("fill", 'red');
+          // .style("font-size",Object.values(this)[0]['size']+2);
+          .style("font-size",d.size+2);
+          // console.log(this);
+        }
+
+        function handleMouseOut(d) {
+          console.log(this);
+          console.log(d);
+          // console.log(Object.values(this)[0]['size'])
+          d3.select(this)
+          // // .classed("word-hovered", false)
+          // .style("font-size",Object.values(this)[0]['size']-2);
+          .style("font-size", d.size-2);
+        }
+}
+</script>
+
+</body>
+</html>
