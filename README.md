@@ -7,6 +7,19 @@
 | Dana Kalaaji   | 289583 |
 
 [Milestone 1](#milestone-1) • [Milestone 2](#milestone-2) • [Milestone 3](#milestone-3)
+## Milestone 3 (4th June, 5pm)
+
+**80% of the final grade**
+
+[Our Website](https://com-480-data-visualization.github.io/project-2023-the-3-musketeers/)
+
+## Milestone 2 (7th May, 5pm)
+
+**10% of the final grade**
+
+[Milestone 2 report](https://github.com/com-480-data-visualization/project-2023-the-3-musketeers/tree/master/Data-viz-milestone-2.pdf)
+
+[Our Website](https://com-480-data-visualization.github.io/project-2023-the-3-musketeers/)
 
 ## Milestone 1 (23rd April, 5pm)
 
@@ -109,17 +122,6 @@ We took inspiration from following visualisations:
 * [PBDB Navigator](https://paleobiodb.org/navigator/): Provides a great interface for browsing through space and time in paleobiology.
 * [DivineComedy.Digital](https://divinecomedy.digital/#/): Goes beyond simply displaying information and visualizes connections between data. Additionally, we were impressed by the creative web page transitions and animations, as well as the aesthetically pleasing design
 
-## Milestone 2 (7th May, 5pm)
-
-**10% of the final grade**
-
-[Milestone 2 report](https://github.com/com-480-data-visualization/project-2023-the-3-musketeers/tree/master/Data-viz-milestone-2.pdf)
-
-[Our Website](https://com-480-data-visualization.github.io/project-2023-the-3-musketeers/)
-
-## Milestone 3 (4th June, 5pm)
-
-**80% of the final grade**
 
 
 ## Late policy
