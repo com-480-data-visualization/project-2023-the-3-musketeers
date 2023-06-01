@@ -1,8 +1,9 @@
 ---
 layout: post
-title:  "Visualization 3"
-date:   2023-05-07 15:00:00 +0200
+title:  "Word Cloud"
+date:   2023-06-01
 categories: Visualization
+preview: /viz3.jpeg
 ---
 
 ## Comparison in the ratings of chocolate bars based on specific ingredients
@@ -10,7 +11,8 @@ categories: Visualization
 ### What do we want to show with this visualization ? 
 
 ### The visualization: 
-<!-- ![visualization 3](https://raw.githubusercontent.com/com-480-data-visualization/project-2023-the-3-musketeers/master/docs/viz3.jpeg) -->
 {% include wordCloud.html %} 
+
+<br>
 
 ### Some of the things can we infer from it: 
