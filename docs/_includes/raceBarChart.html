@@ -1,812 +1,812 @@
 <html lang="zh-CN" style="height: 100%">
 <head>
-  <meta charset="utf-8">
-<style>
-  .controls {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+    <meta charset="utf-8">
+    <style>
+        .controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
-  .slider-container input[type=range] {
-    -webkit-appearance: none;
-    width: 500px;
-    height: 15px;
-    background: #f7cdbc;
-    outline: none;
-    opacity: 1;
-    -webkit-transition: .2s;
-    transition: opacity .2s;
-    border-radius: 10px;
-  }
+        .slider-container input[type=range] {
+            -webkit-appearance: none;
+            width: 500px;
+            height: 15px;
+            background: #f7cdbc;
+            outline: none;
+            opacity: 1;
+            -webkit-transition: .2s;
+            transition: opacity .2s;
+            border-radius: 10px;
+        }
 
 
-  .slider-container input[type=range]::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 25px;
-    height: 25px;
-    background: saddlebrown;
-    cursor: pointer;
-    border-radius: 50%;
-  }
+        .slider-container input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 25px;
+            height: 25px;
+            background: saddlebrown;
+            cursor: pointer;
+            border-radius: 50%;
+        }
 
-  .slider-container input[type=range]::-moz-range-thumb {
-    width: 25px;
-    height: 25px;
-    background: #FFC3A1;
-    cursor: pointer;
-    opacity: 0.7;
-    border-radius: 50%;
-  }
+        .slider-container input[type=range]::-moz-range-thumb {
+            width: 25px;
+            height: 25px;
+            background: #FFC3A1;
+            cursor: pointer;
+            opacity: 0.7;
+            border-radius: 50%;
+        }
 
-  .playpause label {
-    display: block;
-    box-sizing: border-box;
-    width: 0;
-    height: 50px;
-    border-color: transparent transparent transparent saddlebrown;
-    transition: 100ms all ease;
-    cursor: pointer;
-    border-style: double;
-    border-width: 0px 0 0px 50px;
-  }
+        .playpause label {
+            display: block;
+            box-sizing: border-box;
+            width: 0;
+            height: 50px;
+            border-color: transparent transparent transparent saddlebrown;
+            transition: 100ms all ease;
+            cursor: pointer;
+            border-style: double;
+            border-width: 0px 0 0px 50px;
+        }
 
-  .playpause input[type="checkbox"] {
-    position: absolute;
-    left: -9999px;
-  }
+        .playpause input[type="checkbox"] {
+            position: absolute;
+            left: -9999px;
+        }
 
-  .playpause input[type="checkbox"]:checked + label {
-    border-style: solid;
-    border-width: 25px 0 25px 42px;
-  }
+        .playpause input[type="checkbox"]:checked + label {
+            border-style: solid;
+            border-width: 25px 0 25px 42px;
+        }
 
-  .playpause input[type="checkbox"]:focus + label {
-    box-shadow: 0 0 5px lightblue;
-  }
+        .playpause input[type="checkbox"]:focus + label {
+            box-shadow: 0 0 5px lightblue;
+        }
 
-  .playpause, .slider-container {
-    margin: 0 15px;
-  }
-</style>
+        .playpause, .slider-container {
+            margin: 0 15px;
+        }
+    </style>
 </head>
 <body style="margin: 10px">
 <div id="container" style="height: 400px"></div>
 <div class="controls">
-  <div class="playpause">
-    <input type="checkbox" value="None" id="playpause" name="check" />
-    <label for="playpause" tabindex=1></label>
-  </div>
-  <div class="slider-container">
-    <label for="cocoa-slider">Cocoa Percentage:</label>
-    <input type="range" min="60" max="100" value="60" id="cocoa-slider" name="cocoa-slider">
-  </div>
+    <div class="playpause">
+        <input type="checkbox" value="None" id="playpause" name="check" />
+        <label for="playpause" tabindex=1></label>
+    </div>
+    <div class="slider-container">
+        <label for="cocoa-slider">Cocoa Percentage:</label>
+        <input type="range" min="60" max="100" value="60" id="cocoa-slider" name="cocoa-slider">
+    </div>
 </div>
 
 <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/jquery"></script>
 <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5.4.2/dist/echarts.min.js"></script>
 <script type="text/javascript">
-  var dom = document.getElementById('container');
-  var myChart = echarts.init(dom, null, {
-    renderer: 'canvas',
-    useDirtyRect: false
-  });
-  var app = {};
-
-  var option;
-
-  let flags = [
-    {
-      "name": "0-2",
-      "emoji": "☹️"
-    },
-    {
-      "name": "2-2.5",
-      "emoji": "🙁"
-    },
-    {
-      "name": "2.5-3",
-      "emoji": "😐"
-    },
-    {
-      "name": "3-3.5",
-      "emoji": "😐"
-    },
-    {
-      "name": "3.5-4",
-      "emoji": "😃💯"
-    },
-    {
-      "name": "4-5",
-      "emoji": "😃💯"
-    }
-  ]
-
-  let data = [
-    [
-      "60%",
-      "0-2",
-      "1",
-      "Low"
-    ],
-    [
-      "60%",
-      "2-2.5",
-      "7",
-      "Low"
-    ],
-    [
-      "60%",
-      "2.5-3",
-      "29",
-      "Mid"
-    ],
-    [
-      "60%",
-      "3-3.5",
-      "15",
-      "Mid"
-    ],
-    [
-      "60%",
-      "3.5-4",
-      "2",
-      "Mid"
-    ],
-    [
-      "60%",
-      "4-5",
-      "0",
-      "High"
-    ],
-    [
-      "62%",
-      "0-2",
-      "2",
-      "Low"
-    ],
-    [
-      "62%",
-      "2-2.5",
-      "2",
-      "Low"
-    ],
-    [
-      "62%",
-      "2.5-3",
-      "4",
-      "Mid"
-    ],
-    [
-      "62%",
-      "3-3.5",
-      "8",
-      "Mid"
-    ],
-    [
-      "62%",
-      "3.5-4",
-      "1",
-      "Mid"
-    ],
-    [
-      "62%",
-      "4-5",
-      "0",
-      "High"
-    ],
-    [
-      "64%",
-      "0-2",
-      "2",
-      "Low"
-    ],
-    [
-      "64%",
-      "2-2.5",
-      "12",
-      "Low"
-    ],
-    [
-      "64%",
-      "2.5-3",
-      "47",
-      "Mid"
-    ],
-    [
-      "64%",
-      "3-3.5",
-      "64",
-      "Mid"
-    ],
-    [
-      "64%",
-      "3.5-4",
-      "21",
-      "Mid"
-    ],
-    [
-      "64%",
-      "4-5",
-      "0",
-      "High"
-    ],
-    [
-      "66%",
-      "0-2",
-      "0",
-      "Low"
-    ],
-    [
-      "66%",
-      "2-2.5",
-      "1",
-      "Low"
-    ],
-    [
-      "66%",
-      "2.5-3",
-      "8",
-      "Mid"
-    ],
-    [
-      "66%",
-      "3-3.5",
-      "14",
-      "Mid"
-    ],
-    [
-      "66%",
-      "3.5-4",
-      "6",
-      "Mid"
-    ],
-    [
-      "66%",
-      "4-5",
-      "0",
-      "High"
-    ],
-    [
-      "68%",
-      "0-2",
-      "2",
-      "Low"
-    ],
-    [
-      "68%",
-      "2-2.5",
-      "2",
-      "Low"
-    ],
-    [
-      "68%",
-      "2.5-3",
-      "36",
-      "Mid"
-    ],
-    [
-      "68%",
-      "3-3.5",
-      "49",
-      "Mid"
-    ],
-    [
-      "68%",
-      "3.5-4",
-      "34",
-      "Mid"
-    ],
-    [
-      "68%",
-      "4-5",
-      "0",
-      "High"
-    ],
-    [
-      "70%",
-      "0-2",
-      "7",
-      "Low"
-    ],
-    [
-      "70%",
-      "2-2.5",
-      "62",
-      "Low"
-    ],
-    [
-      "70%",
-      "2.5-3",
-      "325",
-      "Mid"
-    ],
-    [
-      "70%",
-      "3-3.5",
-      "496",
-      "Mid"
-    ],
-    [
-      "70%",
-      "3.5-4",
-      "202",
-      "Mid"
-    ],
-    [
-      "70%",
-      "4-5",
-      "0",
-      "High"
-    ],
-    [
-      "72%",
-      "0-2",
-      "7",
-      "Low"
-    ],
-    [
-      "72%",
-      "2-2.5",
-      "36",
-      "Low"
-    ],
-    [
-      "72%",
-      "2.5-3",
-      "148",
-      "Mid"
-    ],
-    [
-      "72%",
-      "3-3.5",
-      "176",
-      "Mid"
-    ],
-    [
-      "72%",
-      "3.5-4",
-      "69",
-      "Mid"
-    ],
-    [
-      "72%",
-      "4-5",
-      "0",
-      "High"
-    ],
-    [
-      "74%",
-      "0-2",
-      "0",
-      "Low"
-    ],
-    [
-      "74%",
-      "2-2.5",
-      "5",
-      "Low"
-    ],
-    [
-      "74%",
-      "2.5-3",
-      "28",
-      "Mid"
-    ],
-    [
-      "74%",
-      "3-3.5",
-      "24",
-      "Mid"
-    ],
-    [
-      "74%",
-      "3.5-4",
-      "14",
-      "Mid"
-    ],
-    [
-      "74%",
-      "4-5",
-      "0",
-      "High"
-    ],
-    [
-      "76%",
-      "0-2",
-      "9",
-      "Low"
-    ],
-    [
-      "76%",
-      "2-2.5",
-      "35",
-      "Low"
-    ],
-    [
-      "76%",
-      "2.5-3",
-      "156",
-      "Mid"
-    ],
-    [
-      "76%",
-      "3-3.5",
-      "136",
-      "Mid"
-    ],
-    [
-      "76%",
-      "3.5-4",
-      "59",
-      "Mid"
-    ],
-    [
-      "76%",
-      "4-5",
-      "0",
-      "High"
-    ],
-    [
-      "78%",
-      "0-2",
-      "0",
-      "Low"
-    ],
-    [
-      "78%",
-      "2-2.5",
-      "2",
-      "Low"
-    ],
-    [
-      "78%",
-      "2.5-3",
-      "5",
-      "Mid"
-    ],
-    [
-      "78%",
-      "3-3.5",
-      "10",
-      "Mid"
-    ],
-    [
-      "78%",
-      "3.5-4",
-      "7",
-      "Mid"
-    ],
-    [
-      "78%",
-      "4-5",
-      "0",
-      "High"
-    ],
-    [
-      "80%",
-      "0-2",
-      "2",
-      "Low"
-    ],
-    [
-      "80%",
-      "2-2.5",
-      "7",
-      "Low"
-    ],
-    [
-      "80%",
-      "2.5-3",
-      "44",
-      "Mid"
-    ],
-    [
-      "80%",
-      "3-3.5",
-      "38",
-      "Mid"
-    ],
-    [
-      "80%",
-      "3.5-4",
-      "8",
-      "Mid"
-    ],
-    [
-      "80%",
-      "4-5",
-      "0",
-      "High"
-    ],
-    [
-      "82%",
-      "0-2",
-      "1",
-      "Low"
-    ],
-    [
-      "82%",
-      "2-2.5",
-      "2",
-      "Low"
-    ],
-    [
-      "82%",
-      "2.5-3",
-      "6",
-      "Mid"
-    ],
-    [
-      "82%",
-      "3-3.5",
-      "9",
-      "Mid"
-    ],
-    [
-      "82%",
-      "3.5-4",
-      "1",
-      "Mid"
-    ],
-    [
-      "82%",
-      "4-5",
-      "0",
-      "High"
-    ],
-    [
-      "84%",
-      "0-2",
-      "2",
-      "Low"
-    ],
-    [
-      "84%",
-      "2-2.5",
-      "7",
-      "Low"
-    ],
-    [
-      "84%",
-      "2.5-3",
-      "21",
-      "Mid"
-    ],
-    [
-      "84%",
-      "3-3.5",
-      "19",
-      "Mid"
-    ],
-    [
-      "84%",
-      "3.5-4",
-      "0",
-      "Mid"
-    ],
-    [
-      "84%",
-      "4-5",
-      "0",
-      "High"
-    ],
-    [
-      "100%",
-      "0-2",
-      "11",
-      "Low"
-    ],
-    [
-      "100%",
-      "2-2.5",
-      "2",
-      "Low"
-    ],
-    [
-      "100%",
-      "2.5-3",
-      "8",
-      "Mid"
-    ],
-    [
-      "100%",
-      "3-3.5",
-      "2",
-      "Mid"
-    ],
-    [
-      "100%",
-      "3.5-4",
-      "0",
-      "Mid"
-    ],
-    [
-      "100%",
-      "4-5",
-      "0",
-      "High"
-    ]
-  ]
-
-
-  const updateFrequency = 1400;
-  const dimension = 2;
-  const ratingColors = {
-    "4-5": '#FFC3A1',
-    "3.5-4": '#F0997D',
-    "3-3.5": '#CC704B',
-    "2.5-3": '#A64B2A',
-    "2-2.5": '#8E3200',
-    "0-2": '#850000',
-  };
-
-  let currentIndex = 0;
-  let isPaused = false;
-
-  const percents = [];
-  console.log(data.length)
-  for (let i = 0; i < data.length; ++i) {
-    if (percents.length === 0 || percents[percents.length - 1] !== data[i][0]) {
-      percents.push(data[i][0]);
-    }
-  }
-  function getFlag(range) {
-    if (!range) {
-      return '';
-    }
-    return (
-            flags.find(function (item) {
-              return item.name == range;
-            }) || {}
-    ).emoji;
-  }
-  let startpercent = percents[0];
-  option = {
-    grid: {
-      top: 5,
-      bottom: 30,
-      left: 150,
-      right: 80
-    },
-    xAxis: {
-      max: 'dataMax',
-      splitLine:{
-        lineStyle: {
-          color: ['#eea2a4'], // 分隔线颜色。
-          type: 'dashed', // 线的类型
-          opacity: 0.2 // 图形透明度。支持从 0 到 1 的数字，为 0 时不绘制该图形。
-          }
-        },
-      axisLabel: {
-        formatter: function (n) {
-          return n;
-        },
-        axisTick: {
-          show: true
-        },
-      }
-    },
-    dataset: {
-      source: data.slice(1).filter(function (d) {
-        return d[0] === startpercent;
-      })
-    },
-    yAxis: {
-      type: 'category',
-      inverse: true,
-      max: 4,
-      axisLabel: {
-        show: true,
-        fontSize: 14,
-        formatter: function (value) {
-          return value + '{flag|' + getFlag(value) + '}';
-        },
-        rich: {
-          flag: {
-            fontSize: 25,
-            padding: 5
-          }
-        }
-      },
-      animationDuration: 300,
-      animationDurationUpdate: 300
-    },
-    series: [
-      {
-        realtimeSort: true,
-        seriesLayoutBy: 'column',
-        type: 'bar',
-        itemStyle: {
-          color: function (param) {
-            return ratingColors[param.value[1]] || '#a7535a';
-          }
-        },
-        encode: {
-          x: dimension,
-          y: 1
-        },
-        label: {
-          show: true,
-          precision: 0,
-          position: 'right',
-          valueAnimation: true,
-          fontFamily: 'monospace'
-        },
-      }
-    ],
-
-    animationDuration: 0,
-    animationDurationUpdate: updateFrequency,
-    animationEasing: 'linear',
-    animationEasingUpdate: 'linear',
-    graphic: {
-      elements: [
-        {
-          type: 'text',
-          right: 160,
-          bottom: 60,
-          style: {
-            text: startpercent,
-            font: 'bolder 80px monospace',
-            fill: 'rgba(100, 100, 100, 0.25)'
-          },
-          z: 100
-        }
-      ]
-    }
-  };
-  myChart.setOption(option);
-
-  let cocoaSlider = document.getElementById('cocoa-slider');
-
-  function updatePercent() {
-    if (isPaused) {
-      return;
-    }
-    let percent = percents[currentIndex];
-    let source = data.filter(function (d) {
-      return d[0] === percent;
+    var dom = document.getElementById('container');
+    var myChart = echarts.init(dom, null, {
+        renderer: 'canvas',
+        useDirtyRect: false
     });
-    option.series[0].data = source;
-    option.graphic.elements[0].style.text = percent;
+    var app = {};
+
+    var option;
+
+    let flags = [
+        {
+            "name": "0-2",
+            "emoji": "☹️"
+        },
+        {
+            "name": "2-2.5",
+            "emoji": "🙁"
+        },
+        {
+            "name": "2.5-3",
+            "emoji": "😐"
+        },
+        {
+            "name": "3-3.5",
+            "emoji": "😐"
+        },
+        {
+            "name": "3.5-4",
+            "emoji": "😃💯"
+        },
+        {
+            "name": "4-5",
+            "emoji": "😃💯"
+        }
+    ]
+
+    let data = [
+        [
+            "60%",
+            "0-2",
+            "1",
+            "Low"
+        ],
+        [
+            "60%",
+            "2-2.5",
+            "7",
+            "Low"
+        ],
+        [
+            "60%",
+            "2.5-3",
+            "29",
+            "Mid"
+        ],
+        [
+            "60%",
+            "3-3.5",
+            "15",
+            "Mid"
+        ],
+        [
+            "60%",
+            "3.5-4",
+            "2",
+            "Mid"
+        ],
+        [
+            "60%",
+            "4-5",
+            "0",
+            "High"
+        ],
+        [
+            "62%",
+            "0-2",
+            "2",
+            "Low"
+        ],
+        [
+            "62%",
+            "2-2.5",
+            "2",
+            "Low"
+        ],
+        [
+            "62%",
+            "2.5-3",
+            "4",
+            "Mid"
+        ],
+        [
+            "62%",
+            "3-3.5",
+            "8",
+            "Mid"
+        ],
+        [
+            "62%",
+            "3.5-4",
+            "1",
+            "Mid"
+        ],
+        [
+            "62%",
+            "4-5",
+            "0",
+            "High"
+        ],
+        [
+            "64%",
+            "0-2",
+            "2",
+            "Low"
+        ],
+        [
+            "64%",
+            "2-2.5",
+            "12",
+            "Low"
+        ],
+        [
+            "64%",
+            "2.5-3",
+            "47",
+            "Mid"
+        ],
+        [
+            "64%",
+            "3-3.5",
+            "64",
+            "Mid"
+        ],
+        [
+            "64%",
+            "3.5-4",
+            "21",
+            "Mid"
+        ],
+        [
+            "64%",
+            "4-5",
+            "0",
+            "High"
+        ],
+        [
+            "66%",
+            "0-2",
+            "0",
+            "Low"
+        ],
+        [
+            "66%",
+            "2-2.5",
+            "1",
+            "Low"
+        ],
+        [
+            "66%",
+            "2.5-3",
+            "8",
+            "Mid"
+        ],
+        [
+            "66%",
+            "3-3.5",
+            "14",
+            "Mid"
+        ],
+        [
+            "66%",
+            "3.5-4",
+            "6",
+            "Mid"
+        ],
+        [
+            "66%",
+            "4-5",
+            "0",
+            "High"
+        ],
+        [
+            "68%",
+            "0-2",
+            "2",
+            "Low"
+        ],
+        [
+            "68%",
+            "2-2.5",
+            "2",
+            "Low"
+        ],
+        [
+            "68%",
+            "2.5-3",
+            "36",
+            "Mid"
+        ],
+        [
+            "68%",
+            "3-3.5",
+            "49",
+            "Mid"
+        ],
+        [
+            "68%",
+            "3.5-4",
+            "34",
+            "Mid"
+        ],
+        [
+            "68%",
+            "4-5",
+            "0",
+            "High"
+        ],
+        [
+            "70%",
+            "0-2",
+            "7",
+            "Low"
+        ],
+        [
+            "70%",
+            "2-2.5",
+            "62",
+            "Low"
+        ],
+        [
+            "70%",
+            "2.5-3",
+            "325",
+            "Mid"
+        ],
+        [
+            "70%",
+            "3-3.5",
+            "496",
+            "Mid"
+        ],
+        [
+            "70%",
+            "3.5-4",
+            "202",
+            "Mid"
+        ],
+        [
+            "70%",
+            "4-5",
+            "0",
+            "High"
+        ],
+        [
+            "72%",
+            "0-2",
+            "7",
+            "Low"
+        ],
+        [
+            "72%",
+            "2-2.5",
+            "36",
+            "Low"
+        ],
+        [
+            "72%",
+            "2.5-3",
+            "148",
+            "Mid"
+        ],
+        [
+            "72%",
+            "3-3.5",
+            "176",
+            "Mid"
+        ],
+        [
+            "72%",
+            "3.5-4",
+            "69",
+            "Mid"
+        ],
+        [
+            "72%",
+            "4-5",
+            "0",
+            "High"
+        ],
+        [
+            "74%",
+            "0-2",
+            "0",
+            "Low"
+        ],
+        [
+            "74%",
+            "2-2.5",
+            "5",
+            "Low"
+        ],
+        [
+            "74%",
+            "2.5-3",
+            "28",
+            "Mid"
+        ],
+        [
+            "74%",
+            "3-3.5",
+            "24",
+            "Mid"
+        ],
+        [
+            "74%",
+            "3.5-4",
+            "14",
+            "Mid"
+        ],
+        [
+            "74%",
+            "4-5",
+            "0",
+            "High"
+        ],
+        [
+            "76%",
+            "0-2",
+            "9",
+            "Low"
+        ],
+        [
+            "76%",
+            "2-2.5",
+            "35",
+            "Low"
+        ],
+        [
+            "76%",
+            "2.5-3",
+            "156",
+            "Mid"
+        ],
+        [
+            "76%",
+            "3-3.5",
+            "136",
+            "Mid"
+        ],
+        [
+            "76%",
+            "3.5-4",
+            "59",
+            "Mid"
+        ],
+        [
+            "76%",
+            "4-5",
+            "0",
+            "High"
+        ],
+        [
+            "78%",
+            "0-2",
+            "0",
+            "Low"
+        ],
+        [
+            "78%",
+            "2-2.5",
+            "2",
+            "Low"
+        ],
+        [
+            "78%",
+            "2.5-3",
+            "5",
+            "Mid"
+        ],
+        [
+            "78%",
+            "3-3.5",
+            "10",
+            "Mid"
+        ],
+        [
+            "78%",
+            "3.5-4",
+            "7",
+            "Mid"
+        ],
+        [
+            "78%",
+            "4-5",
+            "0",
+            "High"
+        ],
+        [
+            "80%",
+            "0-2",
+            "2",
+            "Low"
+        ],
+        [
+            "80%",
+            "2-2.5",
+            "7",
+            "Low"
+        ],
+        [
+            "80%",
+            "2.5-3",
+            "44",
+            "Mid"
+        ],
+        [
+            "80%",
+            "3-3.5",
+            "38",
+            "Mid"
+        ],
+        [
+            "80%",
+            "3.5-4",
+            "8",
+            "Mid"
+        ],
+        [
+            "80%",
+            "4-5",
+            "0",
+            "High"
+        ],
+        [
+            "82%",
+            "0-2",
+            "1",
+            "Low"
+        ],
+        [
+            "82%",
+            "2-2.5",
+            "2",
+            "Low"
+        ],
+        [
+            "82%",
+            "2.5-3",
+            "6",
+            "Mid"
+        ],
+        [
+            "82%",
+            "3-3.5",
+            "9",
+            "Mid"
+        ],
+        [
+            "82%",
+            "3.5-4",
+            "1",
+            "Mid"
+        ],
+        [
+            "82%",
+            "4-5",
+            "0",
+            "High"
+        ],
+        [
+            "84%",
+            "0-2",
+            "2",
+            "Low"
+        ],
+        [
+            "84%",
+            "2-2.5",
+            "7",
+            "Low"
+        ],
+        [
+            "84%",
+            "2.5-3",
+            "21",
+            "Mid"
+        ],
+        [
+            "84%",
+            "3-3.5",
+            "19",
+            "Mid"
+        ],
+        [
+            "84%",
+            "3.5-4",
+            "0",
+            "Mid"
+        ],
+        [
+            "84%",
+            "4-5",
+            "0",
+            "High"
+        ],
+        [
+            "100%",
+            "0-2",
+            "11",
+            "Low"
+        ],
+        [
+            "100%",
+            "2-2.5",
+            "2",
+            "Low"
+        ],
+        [
+            "100%",
+            "2.5-3",
+            "8",
+            "Mid"
+        ],
+        [
+            "100%",
+            "3-3.5",
+            "2",
+            "Mid"
+        ],
+        [
+            "100%",
+            "3.5-4",
+            "0",
+            "Mid"
+        ],
+        [
+            "100%",
+            "4-5",
+            "0",
+            "High"
+        ]
+    ]
+
+
+    const updateFrequency = 2000;
+    const dimension = 2;
+    const ratingColors = {
+        "4-5": '#FFC3A1',
+        "3.5-4": '#F0997D',
+        "3-3.5": '#CC704B',
+        "2.5-3": '#A64B2A',
+        "2-2.5": '#8E3200',
+        "0-2": '#850000',
+    };
+
+    let currentIndex = 0;
+    let isPaused = false;
+
+    const percents = [];
+    console.log(data.length)
+    for (let i = 0; i < data.length; ++i) {
+        if (percents.length === 0 || percents[percents.length - 1] !== data[i][0]) {
+            percents.push(data[i][0]);
+        }
+    }
+    function getFlag(range) {
+        if (!range) {
+            return '';
+        }
+        return (
+            flags.find(function (item) {
+                return item.name == range;
+            }) || {}
+        ).emoji;
+    }
+    let startpercent = percents[0];
+    option = {
+        grid: {
+            top: 5,
+            bottom: 30,
+            left: 150,
+            right: 80
+        },
+        xAxis: {
+            max: 'dataMax',
+            splitLine:{
+                lineStyle: {
+                    color: ['#eea2a4'],
+                    type: 'dashed',
+                    opacity: 0.2
+                }
+            },
+            axisLabel: {
+                formatter: function (n) {
+                    return n;
+                },
+                axisTick: {
+                    show: true
+                },
+            }
+        },
+        dataset: {
+            source: data.slice(0).filter(function (d) {
+                return d[0] === startpercent;
+            })
+        },
+        yAxis: {
+            type: 'category',
+            inverse: true,
+            max: 4,
+            axisLabel: {
+                show: true,
+                fontSize: 14,
+                formatter: function (value) {
+                    return value + '{flag|' + getFlag(value) + '}';
+                },
+                rich: {
+                    flag: {
+                        fontSize: 25,
+                        padding: 5
+                    }
+                }
+            },
+            animationDuration: 300,
+            animationDurationUpdate: 300
+        },
+        series: [
+            {
+                realtimeSort: true,
+                seriesLayoutBy: 'column',
+                type: 'bar',
+                itemStyle: {
+                    color: function (param) {
+                        return ratingColors[param.value[1]] || '#a7535a';
+                    }
+                },
+                encode: {
+                    x: dimension,
+                    y: 1
+                },
+                label: {
+                    show: true,
+                    precision: 0,
+                    position: 'right',
+                    valueAnimation: false,
+                    fontFamily: 'monospace'
+                },
+            }
+        ],
+
+        animationDuration: 0,
+        animationDurationUpdate: updateFrequency,
+        animationEasing: 'linear',
+        animationEasingUpdate: 'linear',
+        graphic: {
+            elements: [
+                {
+                    type: 'text',
+                    right: 160,
+                    bottom: 60,
+                    style: {
+                        text: startpercent,
+                        font: 'bolder 80px monospace',
+                        fill: 'rgba(100, 100, 100, 0.25)'
+                    },
+                    z: 100
+                }
+            ]
+        }
+    };
     myChart.setOption(option);
 
-    let cocoaPercent = ((currentIndex / (percents.length - 1)) * 40) + 60;
-    cocoaSlider.value = cocoaPercent;
+    let cocoaSlider = document.getElementById('cocoa-slider');
 
-    if (currentIndex === percents.length - 1) {
-      cocoaSlider.value = 100;
+    function updatePercent() {
+        if (isPaused) {
+            return;
+        }
+        let percent = percents[currentIndex];
+        let source = data.filter(function (d) {
+            return d[0] === percent;
+        });
+        option.series[0].data = source;
+        option.graphic.elements[0].style.text = percent;
+        myChart.setOption(option);
+
+        let cocoaPercent = ((currentIndex / (percents.length - 1)) * 40) + 60;
+        cocoaSlider.value = cocoaPercent;
+
+        if (currentIndex === percents.length - 1) {
+            cocoaSlider.value = 100;
+        }
+
+        currentIndex = (currentIndex + 1) % percents.length;
+
     }
 
-    currentIndex = (currentIndex + 1) % percents.length;
+    document.getElementById('playpause').addEventListener('click', function() {
+        isPaused = !isPaused;
+    });
 
-  }
+    cocoaSlider.addEventListener('input', function() {
+        let cocoaPercent = cocoaSlider.value;
 
-  document.getElementById('playpause').addEventListener('click', function() {
-    isPaused = !isPaused;
-  });
+        let animationIndex = Math.floor(((cocoaPercent - 60) / 40) * percents.length);
+        currentIndex = animationIndex;
 
-  cocoaSlider.addEventListener('input', function() {
-    let cocoaPercent = cocoaSlider.value;
+        let convertedPercent = ((cocoaPercent - 60) / 40) * 100;
+        document.getElementById('cocoa-percent').style.width = convertedPercent + '%';
+    });
 
-    let animationIndex = Math.floor(((cocoaPercent - 60) / 40) * percents.length);
-    currentIndex = animationIndex;
-
-    let convertedPercent = ((cocoaPercent - 60) / 40) * 100;
-    document.getElementById('cocoa-percent').style.width = convertedPercent + '%';
-  });
-
-  setInterval(updatePercent, updateFrequency);
+    setInterval(updatePercent, updateFrequency);
 
 
 
-  if (option && typeof option === 'object') {
-    myChart.setOption(option);
-  }
+    if (option && typeof option === 'object') {
+        myChart.setOption(option);
+    }
 
-  window.addEventListener('resize', myChart.resize);
+    window.addEventListener('resize', myChart.resize);
 </script>
 </body>
 </html>
