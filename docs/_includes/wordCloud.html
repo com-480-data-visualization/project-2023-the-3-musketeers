@@ -42,6 +42,53 @@
     background: #f0dcf4;
   }
 
+  /* #trait_left{
+    width: 35%;
+    height:400px;
+    float: left;
+    background: #8e23a3;
+  }
+
+  #trait_right{
+    width: 45%;
+    height:400px;
+    float:right;
+    background: #bbe3cc;
+  } */
+
+  /* Create two equal columns that floats next to each other */
+  #left {
+    float: left;
+    position: relative;
+    width: 40%;
+    left: 5%;
+    padding: 10px;
+    height: 300px; /* Should be removed. Only for demonstration */
+    /* background: #bbe3cc; */
+  }
+
+  #right {
+    float: right;
+    width: 40%;
+    padding: 10px;
+    height: 300px; /* Should be removed. Only for demonstration */
+    /* background: #8e23a3; */
+  }
+
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  /* .column {
+  float: left;
+  width: 30%;
+  background: #f0dcf4;
+  } */
+
+  
+
 
 </style>
 </head>
@@ -54,7 +101,31 @@
     <div id="box-plot"></div>
   </div>
   <div class = "float">
-    <div id="traits"></div>
+    <!-- <div id="traits"> -->
+    <div>
+      <h4 style="text-align:center">The percentage of Sugar!</h4>
+    </div>
+
+    <div class = "row">
+      <div id = "left"></div>
+      <div id = "right"></div>
+    </div>
+
+
+
+    <!-- <div class="column">
+      <div id="left">
+        <!-- <p> Hey</p> -->
+      </div>
+    </div> -->
+    <!-- <div id = "column">    
+      <div id="right">
+        <!-- <p style="color:rgb(127, 255, 212)"> Here
+        </p> -->
+      </div>  
+      <!-- </div> -->
+    </div> -->
+    <div style >
   </div>
   
   
@@ -174,8 +245,6 @@ function draw(words) {
 </script>
 <script type="text/javascript">
 
-keyword = 'sugar'
-
 var margin_box = {top: 10, right: 50, bottom: 10, left: 80},
     width_box = document.getElementById("box-plot").clientWidth - margin_box.left - margin_box.right,
     height_box = document.getElementById("box-plot").clientHeight - margin_box.top - margin_box.bottom;
@@ -189,33 +258,32 @@ var svg = d3.select("#box-plot")
     .attr("transform",
           "translate(" + margin_box.left + "," + margin_box.top + ")");
 
-
-var returned = null
-// Read the data and compute summary statistics for each specie
-d3.csv("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/iris.csv", function(data) {
-  // Compute quartiles, median, inter quantile range min and max --> these info are then used to draw the box.
-  var sumstat = d3.nest() // nest function allows to group the calculation per level of a factor
-    .key(function(d) { return d.Species;})
-    .rollup(function(d) {
-      q1 = d3.quantile(d.map(function(g) { return g.Sepal_Length;}).sort(d3.ascending),.25)
-      median = d3.quantile(d.map(function(g) { return g.Sepal_Length;}).sort(d3.ascending),.5)
-      q3 = d3.quantile(d.map(function(g) { return g.Sepal_Length;}).sort(d3.ascending),.75)
-      interQuantileRange = q3 - q1
-      min = q1 - 1.5 * interQuantileRange
-      max = q3 + 1.5 * interQuantileRange
-      return({q1: q1, median: median, q3: q3, interQuantileRange: interQuantileRange, min: min, max: max})
-    })
-    .entries(data)
-
-
-}) 
+// var returned = null
+// // Read the data and compute summary statistics for each specie
+// d3.csv("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/iris.csv", function(data) {
+//   // Compute quartiles, median, inter quantile range min and max --> these info are then used to draw the box.
+//   var sumstat = d3.nest() // nest function allows to group the calculation per level of a factor
+//     .key(function(d) { return d.Species;})
+//     .rollup(function(d) {
+//       q1 = d3.quantile(d.map(function(g) { return g.Sepal_Length;}).sort(d3.ascending),.25)
+//       median = d3.quantile(d.map(function(g) { return g.Sepal_Length;}).sort(d3.ascending),.5)
+//       q3 = d3.quantile(d.map(function(g) { return g.Sepal_Length;}).sort(d3.ascending),.75)
+//       interQuantileRange = q3 - q1
+//       min = q1 - 1.5 * interQuantileRange
+//       max = q3 + 1.5 * interQuantileRange
+//       return({q1: q1, median: median, q3: q3, interQuantileRange: interQuantileRange, min: min, max: max})
+//     })
+//     .entries(data)
 
 
+// }) 
 
 
 // self-defined data
  
-var data_test = {"key": "sugar", "ratings": [ {"key":"with sugar",  "value": {"q1": 0.4, "q3": 0.5, "min": 0.1, "max": 0.8, "median": 0.55}}, {"key": "without sugar", "value": {"q1": 0.65, "q3": 0.7, "min": 0.5, "max": 0.75, "median": 0.66}}], "top5": [{"with": ["sweet", "smooth"]}, {"without": ["dry"], "percentage": "95%"}]}
+var data_test = {"key": "sugar", "ratings": [ {"key":"with sugar",  "value": {"q1": 0.4, "q3": 0.5, "min": 0.1, "max": 0.8, "median": 0.55}}, {"key": "without sugar", "value": {"q1": 0.65, "q3": 0.7, "min": 0.5, "max": 0.75, "median": 0.66}}], "top5": [{"with sugar": ["sweet", "smooth"]}, {"without sugar": ["dry"]}], "percentage": "95%"}
+
+keyword = data_test.key
 
 // Show the X scale
 var domain = ['with ' + keyword, 'without ' + keyword]
@@ -238,7 +306,7 @@ svg.append("g").call(d3.axisLeft(y))
 
 // data only for this ingredient
 data_this = data_test.ratings 
-console.log('data this: ', data_this)
+// console.log('data this: ', data_this)
 ingredient = data_test.key
 
 svg
@@ -282,9 +350,34 @@ svg
 // })
 
 
-
-
 </script> 
+<script type="text/javascript">
+var data_test = {"key": "sugar", "ratings": [ {"key":"with sugar",  "value": {"q1": 0.4, "q3": 0.5, "min": 0.1, "max": 0.8, "median": 0.55}}, {"key": "without sugar", "value": {"q1": 0.65, "q3": 0.7, "min": 0.5, "max": 0.75, "median": 0.66}}], "top5": [ ["sweet", "smooth"],  ["dry"]], "percentage": "95%"}
+var keyword = data_test.key
+var domain = ['with ' + keyword, 'without ' + keyword]
+console.log(data_test.top5)
+var svg = d3.select("#word-cloud").append("svg")
+
+// var column_left = document.getElementById("left")
+
+const column_left = d3.select('#left')
+column_left
+  .selectAll("p")
+  .data(data_test.top5[0])
+  .enter()
+  .append("p")
+  .text((d) => d);
+
+const column_right = d3.select('#right')
+column_right
+  .selectAll("p")
+  .data(data_test.top5[1])
+  .enter()
+  .append("p")
+  .text((d) => d);
+
+
+</script>
 
 </body>
 </html>
