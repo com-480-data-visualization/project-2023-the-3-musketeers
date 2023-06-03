@@ -10,6 +10,7 @@ categories: Visualization
 ### What do we want to show with this visualization ? 
 
 ### The visualization: 
-![visualization 1](https://raw.githubusercontent.com/com-480-data-visualization/project-2023-the-3-musketeers/master/docs/viz1.jpeg)
+{% include map.html %}
+{% include sankey.html %}
 
 ### Some of the things can we infer from it:
