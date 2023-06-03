@@ -1,383 +1,428 @@
 <html lang="zh-CN" style="height: 100%">
 <head>
-  <!-- <script src="https://cdn.anychart.com/releases/v8/js/anychart-base.min.js"></script> -->
-  <!-- <script src="https://cdn.anychart.com/releases/v8/js/anychart-tag-cloud.min.js"></script> -->
   <meta charset="utf-8">
-<style>
-  .container{
-    width: 100%;
-    height: 1000px;
-    margin: 5px;
-    background: #f6d7c1;
-  } 
-  
-  #word-cloud{
-    width: 90%;
-    height: 400px;
-    position: relative;
-    left: 5%;
-    background: #dcf0f4;
-  }
+  <style>
 
-  .float{
-    float: left;
-    width: 45%;
-    position: relative;
-    left: 5%;
-  }
+    /* Clear floats after the columns */
+    #row:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
 
-  #box-plot{
-    width: 100%;
-    height: 400px;
-    position: relative;
-    /* left: 5%; */
-    background: #fbf4de;
-  }
+    #container{
+      width: 100%;
+      height: 450px;
+      margin: 5px;
+      /* background: #f6d7c1; */
+    } 
+    
+    #word-cloud{
+      width: 90%;
+      height: 350px;
+      position: relative;
+      left: 5%;
+      /* background: #dcf0f4; */
+    }
 
-  #traits{
-    width: 100%;
-    height: 400px;
-    position: relative;
-    /* left: 55%; */
-    background: #f0dcf4;
-  }
+    .float{
+      float: left;
+      width: 50%;
+      position: relative;
+      /* left: 5%; */
+    }
 
-  /* #trait_left{
-    width: 35%;
-    height:400px;
-    float: left;
-    background: #8e23a3;
-  }
+    #box-plot{
+      width: 100%;
+      /* height: 400px; */
+      position: relative;
+      /* background: #e1cb82; */
+      font-family: "Impact";
+    }
 
-  #trait_right{
-    width: 45%;
-    height:400px;
-    float:right;
-    background: #bbe3cc;
-  } */
+    #traits{
+      width: 100%;
+      height: 400px;
+      position: relative;
+      /* left: 55%; */
+      /* background: #f0dcf4; */
+    }
 
-  /* Create two equal columns that floats next to each other */
-  #left {
-    float: left;
-    position: relative;
-    width: 40%;
-    left: 5%;
-    padding: 10px;
-    height: 300px; /* Should be removed. Only for demonstration */
-    /* background: #bbe3cc; */
-  }
+    h4{
+      font-family: Impact;
+      font-size: 25;
+      font-weight: lighter;
+    }
 
-  #right {
-    float: right;
-    width: 40%;
-    padding: 10px;
-    height: 300px; /* Should be removed. Only for demonstration */
-    /* background: #8e23a3; */
-  }
-
-  /* Clear floats after the columns */
-  .row:after {
-    content: "";
-    display: table;
-    clear: both;
-  }
-  /* .column {
-  float: left;
-  width: 30%;
-  background: #f0dcf4;
-  } */
-
-  
+    .axis {
+      font: 14px Impact;   
+      color: #439884;  
+    }
 
 
-</style>
+    /* Create two equal columns that floats next to each other */
+    #left {
+      float: left;
+      position: relative;
+      width: 45%;
+      /* left: 5%; */
+      padding: 10px;
+      /* height: 300px;  */
+      /* background: #bbe3cc; */
+      font-family: "Impact";
+      font-size:15px;
+    }
+
+    #right {
+      float: right;
+      width: 45%;
+      padding: 10px;
+      /* height: 300px;  */
+      /* background: #8e23a3; */
+      font-family: "Impact";
+      font-size:15px;
+    }
+
+    .background {
+      position: relative;
+      bottom:0;
+      background-color: #39200d8a;
+      color: #f9f8f7;
+      border-radius: 5px;
+      width: 100%;
+      height: 23px;
+      font-size: 15px;
+      /* z-index: -1; */
+    }
+
+
+
+
+    
+
+
+  </style>
 </head>
 <body style="margin: 10px">
-<div class="container">
-  <h3>Word Cloud</h3>
-  <div id="word-cloud">
-  </div>
-  <div class = "float">
-    <div id="box-plot"></div>
-  </div>
-  <div class = "float">
-    <!-- <div id="traits"> -->
-    <div>
-      <h4 style="text-align:center">The percentage of Sugar!</h4>
+<div id="container">
+    <h3>Word Cloud</h3>
+    <div id="word-cloud"></div>
+
+    <div id = "percentage"></div>
+
+    <div class = "float">
+        <div id="box-plot"></div>
     </div>
-
-    <div class = "row">
-      <div id = "left"></div>
-      <div id = "right"></div>
+    <div class = "float">
+        <div id = "headline"></div>
+        <div id = "row">
+            <div id = "left"></div>
+            <div id = "right"></div>
+        </div>
     </div>
-
-
-
-    <!-- <div class="column">
-      <div id="left">
-        <!-- <p> Hey</p> -->
-      </div>
-    </div> -->
-    <!-- <div id = "column">    
-      <div id="right">
-        <!-- <p style="color:rgb(127, 255, 212)"> Here
-        </p> -->
-      </div>  
-      <!-- </div> -->
-    </div> -->
-    <div style >
-  </div>
-  
-  
 </div>
- 
-<!-- <div class="controls">
-  <div class="playpause">
-    <input type="checkbox" value="None" id="playpause" name="check" />
-    <label for="playpause" tabindex=1></label>
-  </div>
-  <div class="slider-container">
-    <label for="cocoa-slider">Cocoa Percentage:</label>
-    <input type="range" min="60" max="100" value="60" id="cocoa-slider" name="cocoa-slider">
-  </div>
-</div> -->
 
 <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/jquery"></script>
 <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5.4.2/dist/echarts.min.js"></script>
 <script src="https://d3js.org/d3.v4.js"></script>
 <script src="https://cdn.jsdelivr.net/gh/holtzy/D3-graph-gallery@master/LIB/d3.layout.cloud.js"></script>
 <script type="text/javascript">
-// List of words
-const myWords = [
-    {text: "Hello", value:6260},
-    {text: "happy", value:5370},
-    {text: "beautiful", value:2480},
-    {text: "rainbow", value:4350},
-    {text: "unicorn", value:1250},
-    {text: "glitter", value:3140},
-    {text: "happy", value:990},
-    {text: "grill", value:2000},
-    {text: "blue", value:2900},
-    {text: "nice", value:590},
-    {text: "pie", value:4230}];
-  
-console.log(myWords)
-var v_min = d3.min(myWords, function(d) {return(d.value);});
-var v_max = d3.max(myWords, function(d) {return(d.value);});
-var scale = d3.scaleLinear().domain([v_min,v_max]).range([20,80]);
-myWords.map(function(obj) {obj.value = Math.round(scale(obj.value));});
+
+  const myWords = [
+    {"text": "3 Beans", "value": 1091}, 
+    {"text": "Sugar", "value": 2461}, 
+    {"text": "Cocao Butter", "value": 1743}, 
+    {"text": "2 Beans", "value": 777}, 
+    {"text": "4 Beans", "value": 476}, 
+    {"text": "Lecithin", "value": 500}, 
+    {"text": "Vanilla", "value": 353}, 
+    {"text": "6 Beans", "value": 4}, 
+    {"text": "Salt", "value": 37}, 
+    {"text": "5 Beans", "value": 191}, 
+    {"text": "Other Sweeteners", "value": 77}, 
+    {"text": "1 Beans", "value": 6}];
+    
+  console.log(myWords)
+  var v_min = d3.min(myWords, function(d) {return(d.value);});
+  var v_max = d3.max(myWords, function(d) {return(d.value);});
+  var scale = d3.scaleLinear().domain([v_min,v_max]).range([20,80]);
+  myWords.map(function(obj) {obj.value = Math.round(scale(obj.value));});
 
 
-var fill = d3.scaleOrdinal(d3.schemeCategory20);
-// set the dimensions and margins of the graph
-var margin = {top: 20, right: 20, bottom: 20, left: 20},
-    width = document.getElementById("word-cloud").clientWidth - margin.left - margin.right,
-    height = document.getElementById("word-cloud").clientHeight - margin.top - margin.bottom;
+  var fill = d3.scaleOrdinal(d3.schemeCategory20);
+  // set the dimensions and margins of the graph
+  var margin = {top: 10, right: 20, bottom: 10, left: 20},
+      width = document.getElementById("word-cloud").clientWidth - margin.left - margin.right,
+      height = document.getElementById("word-cloud").clientHeight - margin.top - margin.bottom;
 
-// append the svg object to the body of the page
-var svg = d3.select("#word-cloud").append("svg")
-    .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom)
-  .append("g")
-    .attr("transform",
-          "translate(" + margin.left + "," + margin.top + ")");
-
-// Constructs a new cloud layout instance. It run an algorithm to find the position of words that suits your requirements
-// Wordcloud features that are different from one word to the other must be here
-var layout = d3.layout.cloud()
-  .size([width, height])
-  .words(myWords)
-  .padding(10)        //space between words
-  .rotate(0)       // rotation angle in degrees
-  .fontSize(function(d) {return d.value;})
-  // .rotate(function() { return ~~(Math.random() * 2) * 90; })
-  // .fontSize(20)      // font size of words
-  .on("end", draw);
-layout.start();
-
-// This function takes the output of 'layout' above and draw the words
-// Wordcloud features that are THE SAME from one word to the other can be here
-function draw(words) {
-  svg
+  // append the svg object to the body of the page
+  var svg = d3.select("#word-cloud").append("svg")
+      .attr("width", width + margin.left + margin.right)
+      .attr("height", height + margin.top + margin.bottom)
     .append("g")
-      .attr("transform", "translate(" + layout.size()[0] / 2 + "," + layout.size()[1] / 2 + ")")
-      .selectAll("text")
-        .data(words)
-        .enter()
-        .append("text")
-        .text((d) => d.text)
-        .style("font-size", (d) => d.value)
-        // .style("fill", "#69b3a2")
-        .style("fill", (d, i) => fill(i))
-        .attr("text-anchor", "middle")
-        .style("font-family", "Impact")
-        .attr("transform", function(d) {
-          return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
-        })
-        .text(function(d) { return d.text; })
-        .on("mouseover", handleMouseOver)
-        .on("mouseout", handleMouseOut)
-        .on("click", handleClick);
+      .attr("transform",
+            "translate(" + margin.left + "," + margin.top + ")");
 
-        function handleMouseOver(d) {
-          d3.select(this)
-            .transition()
-            .duration(200)
-            .style("opacity", 0.8)
-            .style("font-size",d.size*1.1);
-          // console.log(this);
-        }
+  // Constructs a new cloud layout instance. It run an algorithm to find the position of words that suits your requirements
+  // Wordcloud features that are different from one word to the other must be here
+  var layout = d3.layout.cloud()
+    .size([width, height])
+    .words(myWords)
+    .padding(10)        //space between words
+    .rotate(0)       // rotation angle in degrees
+    .fontSize(function(d) {return d.value;})
+    // .rotate(function() { return ~~(Math.random() * 2) * 90; })
+    // .fontSize(20)      // font size of words
+    .on("end", draw);
+  layout.start();
 
-        function handleMouseOut(d) {
-          d3.select(this)
-            .transition()
-            .duration(100)
-            .style("opacity", 1)
-            .style("font-size", d.size);
-        }
+  // This function takes the output of 'layout' above and draw the words
+  // Wordcloud features that are THE SAME from one word to the other can be here
+  function draw(words) {
+    svg
+      .append("g")
+        .attr("transform", "translate(" + layout.size()[0] / 2 + "," + layout.size()[1] / 2 + ")")
+        .selectAll("text")
+          .data(words)
+          .enter()
+          .append("text")
+          .text((d) => d.text)
+          .style("font-size", (d) => d.value)
+          // .style("fill", "#69b3a2")
+          .style("fill", (d, i) => fill(i))
+          .attr("text-anchor", "middle")
+          .style("font-family", "Impact")
+          .attr("transform", function(d) {
+            return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
+          })
+          .text(function(d) { return d.text; })
+          .on("mouseover", handleMouseOver)
+          .on("mouseout", handleMouseOut)
+          .on("click", handleClick);
 
-        function handleClick(d) {
-          console.log(d);
-          var node = d3.select("#box-plot").node();
-          console.log(node);
-        }
+          function handleMouseOver(d) {
+            d3.select(this)
+              .transition()
+              .delay(50)
+              .duration(300)
+              .style("opacity", 0.8)
+              .style("font-size",d.size*1.2);
+            // console.log(this);
+          }
+
+          function handleMouseOut(d) {
+            d3.select(this)
+              .transition()
+              .delay(30)
+              .duration(200)
+              .style("opacity", 1)
+              .style("font-size", d.size);
+          }
+
+          // var data_test = [{"key": "sugar", "ratings": [ {"key":"with sugar",  "value": {"q1": 0.4, "q3": 0.5, "min": 0.1, "max": 0.8, "median": 0.55}}, {"key": "without sugar", "value": {"q1": 0.65, "q3": 0.7, "min": 0.5, "max": 0.75, "median": 0.66}}], "top5": [ ["sweet", "smooth"],  ["dry", "plain"]], "percentage": 95},{"key": "glitter", "ratings": [ {"key":"with glitter",  "value": {"q1": 0.4, "q3": 0.5, "min": 0.1, "max": 0.8, "median": 0.55}}, {"key": "without glitter", "value": {"q1": 0.65, "q3": 0.7, "min": 0.5, "max": 0.75, "median": 0.66}}], "top5": [ ["shiny", "stars"],  ["dark"]], "percentage": 95}];
+
+          var data_test = [{"key": "1 Beans", "ratings": [{"key": "with 1 Beans", "value": {"q1": 2.8125, "q3": 3.0, "min": 2.5, "max": 3.5, "median": 3.0}}, {"key": "without 1 Beans", "value": {"q1": 3.0, "q3": 3.5, "min": 1.0, "max": 4.0, "median": 3.25}}], "top5": [[" intense", " bitter", "fatty", " controlled bitter", " fruit"], [" cocoa", " sweet", " nutty", " roasty", "creamy"]], "percentage": 0.23}, {"key": "3 Beans", "ratings": [{"key": "with 3 Beans", "value": {"q1": 3.0, "q3": 3.5, "min": 1.5, "max": 4.0, "median": 3.25}}, {"key": "without 3 Beans", "value": {"q1": 2.75, "q3": 3.5, "min": 1.0, "max": 4.0, "median": 3.25}}], "top5": [[" cocoa", " sweet", " nutty", " roasty", "sandy"], [" cocoa", " nutty", " sweet", "creamy", " earthy"]], "percentage": 41.45}, {"key": "Sugar", "ratings": [{"key": "with Sugar", "value": {"q1": 3.0, "q3": 3.5, "min": 1.0, "max": 4.0, "median": 3.25}}, {"key": "without Sugar", "value": {"q1": 2.75, "q3": 3.25, "min": 1.0, "max": 4.0, "median": 3.0}}], "top5": [[" cocoa", " sweet", " nutty", " roasty", "creamy"], [" bitter", " earthy", " sweet", " cocoa", "sandy"]], "percentage": 93.5}, {"key": "Cocao Butter", "ratings": [{"key": "with Cocao Butter", "value": {"q1": 3.0, "q3": 3.5, "min": 1.0, "max": 4.0, "median": 3.25}}, {"key": "without Cocao Butter", "value": {"q1": 3.0, "q3": 3.5, "min": 1.0, "max": 4.0, "median": 3.25}}], "top5": [[" cocoa", " sweet", "creamy", " nutty", "sandy"], [" cocoa", " earthy", " sour", " roasty", " nutty"]], "percentage": 66.22}, {"key": "2 Beans", "ratings": [{"key": "with 2 Beans", "value": {"q1": 3.0, "q3": 3.5, "min": 2.0, "max": 4.0, "median": 3.25}}, {"key": "without 2 Beans", "value": {"q1": 3.0, "q3": 3.5, "min": 1.0, "max": 4.0, "median": 3.25}}], "top5": [[" cocoa", " earthy", " sour", " roasty", " nutty"], [" cocoa", " sweet", " nutty", "creamy", "sandy"]], "percentage": 29.52}, {"key": "4 Beans", "ratings": [{"key": "with 4 Beans", "value": {"q1": 2.75, "q3": 3.5, "min": 1.5, "max": 4.0, "median": 3.0}}, {"key": "without 4 Beans", "value": {"q1": 3.0, "q3": 3.5, "min": 1.0, "max": 4.0, "median": 3.25}}], "top5": [[" sweet", "creamy", " nutty", " cocoa", " fatty"], [" cocoa", " sweet", " nutty", " roasty", " earthy"]], "percentage": 18.09}, {"key": "Lecithin", "ratings": [{"key": "with Lecithin", "value": {"q1": 2.75, "q3": 3.5, "min": 1.0, "max": 4.0, "median": 3.25}}, {"key": "without Lecithin", "value": {"q1": 3.0, "q3": 3.5, "min": 1.0, "max": 4.0, "median": 3.25}}], "top5": [["creamy", " sweet", " cocoa", " nutty", "sandy"], [" cocoa", " sweet", " nutty", " earthy", " roasty"]], "percentage": 19.0}, {"key": "Vanilla", "ratings": [{"key": "with Vanilla", "value": {"q1": 2.75, "q3": 3.5, "min": 1.0, "max": 4.0, "median": 3.0}}, {"key": "without Vanilla", "value": {"q1": 3.0, "q3": 3.5, "min": 1.0, "max": 4.0, "median": 3.25}}], "top5": [[" vanilla", "creamy", " cocoa", "sweet", " sweet"], [" cocoa", " sweet", " nutty", " roasty", " earthy"]], "percentage": 13.41}, {"key": "5 Beans", "ratings": [{"key": "with 5 Beans", "value": {"q1": 2.75, "q3": 3.5, "min": 1.0, "max": 4.0, "median": 3.0}}, {"key": "without 5 Beans", "value": {"q1": 3.0, "q3": 3.5, "min": 1.0, "max": 4.0, "median": 3.25}}], "top5": [[" cocoa", "creamy", " vanilla", "sweet", " sweet"], [" cocoa", " sweet", " nutty", " roasty", " earthy"]], "percentage": 7.26}, {"key": "5 Beans", "ratings": [{"key": "with 5 Beans", "value": {"q1": 2.75, "q3": 3.5, "min": 1.0, "max": 4.0, "median": 3.0}}, {"key": "without 5 Beans", "value": {"q1": 3.0, "q3": 3.5, "min": 1.0, "max": 4.0, "median": 3.25}}], "top5": [[" cocoa", "creamy", " vanilla", "sweet", " sweet"], [" cocoa", " sweet", " nutty", " roasty", " earthy"]], "percentage": 7.26}, {"key": "6 Beans", "ratings": [{"key": "with 6 Beans", "value": {"q1": 2.75, "q3": 2.9375, "min": 2.75, "max": 3.5, "median": 2.75}}, {"key": "without 6 Beans", "value": {"q1": 3.0, "q3": 3.5, "min": 1.0, "max": 4.0, "median": 3.25}}], "top5": [["strawberry", " cream", " gateway", "roasty", " sweet"], [" cocoa", " sweet", " nutty", " roasty", "creamy"]], "percentage": 0.15}, {"key": "Salt", "ratings": [{"key": "with Salt", "value": {"q1": 2.75, "q3": 3.25, "min": 1.5, "max": 3.75, "median": 3.0}}, {"key": "without Salt", "value": {"q1": 3.0, "q3": 3.5, "min": 1.0, "max": 4.0, "median": 3.25}}], "top5": [[" caramel", " salt", " salty", "creamy", "strawberry"], [" cocoa", " sweet", " nutty", " roasty", "creamy"]], "percentage": 1.41}, {"key": "Other Sweeteners", "ratings": [{"key": "with Other Sweeteners", "value": {"q1": 2.75, "q3": 3.25, "min": 1.5, "max": 3.75, "median": 3.0}}, {"key": "without Other Sweeteners", "value": {"q1": 3.0, "q3": 3.5, "min": 1.0, "max": 4.0, "median": 3.25}}], "top5": [[" coconut", " cocoa", " earthy", " caramel", " bitter"], [" cocoa", " sweet", " nutty", " roasty", "creamy"]], "percentage": 2.93}];
+
+
+          function handleClick(d) {
+            console.log(d);
+            // get data of the chosen word
+            var subSet = getSubset(d);
+            console.log('subSet: ',subSet);
+            // change div sizes
+
+            // draw box-plot
+            var box_plot_div = document.getElementById("box-plot");
+            box_plot_div.style.height = "250px"; 
+            BoxPlot(subSet);
+            
+            // show percentage
+            showPercentage(subSet);
+
+            //show percentage
+            var container_div = document.getElementById("container");
+            container_div.style.height = "900px"; 
+            
+            var left_div = document.getElementById("left");
+            left_div.style.height = "280px"; 
+            var right_div = document.getElementById("right");
+            right_div.style.height = "260px"; 
+            
+            traits(subSet);
+            
+          }
+
+          function getSubset(d) {
+            const keyword = d.text;
+            const desiredObjects = data_test.filter(obj => obj.key === keyword);
+            return desiredObjects[0];
+          }
+
+          function showPercentage(subSet) {
+            var div_percentage = d3.select('#percentage');
+            console.log(subSet);
+            div_percentage
+              .html("")
+              .append("h4")
+              .style("text-align", "center")
+              // .text("xxx percent of chocolate bars contain "+ d.text +"!");
+              .html("<span style='color: #439884; font-family: Impact; font-size: 30px;'>"+subSet.percentage+"%</span> percent of chocolate bars contains "+ "<span style='color: #439884; font-family: Impact; font-size: 30px;'>"+subSet.key+"</span>");
+          }
+
+          function BoxPlot(subSet){
+
+            d3.select("#box-plot").html("");
+
+            var margin_box = {top: 20, right: 20, bottom: 30, left: 30};
+            var width_box = document.getElementById("box-plot").clientWidth - margin_box.left - margin_box.right;
+            var height_box = document.getElementById("box-plot").clientHeight - margin_box.top - margin_box.bottom;
+
+            // append the svg object to the body of the page
+            d3.select('#box-plot')
+              .append("h4")
+              .text("Rating distribution")
+              .style("text-align", "center");
+
+            var svg = d3.select("#box-plot")
+              .append("svg")
+                .attr("width", width_box + margin_box.left + margin_box.right)
+                .attr("height", height_box + margin_box.top + margin_box.bottom)
+              .append("g")
+                .attr("transform",
+                      "translate(" + margin_box.left + "," + margin_box.top + ")");
+            
+            keyword = subSet.key
+
+            // Show the X scale
+            var domain = ['with ' + keyword, 'without ' + keyword]
+            var x = d3.scaleBand()
+              .range([ 0, width_box ])
+              .domain(domain)
+              .paddingInner(1)
+              .paddingOuter(.5)
+            svg.append("g")
+              .attr("class","axis")
+              .style("color","blue")
+              .attr("transform", "translate(0," + height_box + ")")
+              .call(d3.axisBottom(x))
+
+            // Show the Y scale
+            var y = d3.scaleLinear()
+              .domain([0,5])
+              .range([height_box, 0])
+            svg.append("g")
+                .attr("class","axis")
+                .attr("stoke","blue")
+                .call(d3.axisLeft(y))
+
+            // Show the main vertical line
+
+            // data only for this ingredient
+            data_this = subSet.ratings 
+            // console.log('data this: ', data_this)
+            ingredient = subSet.key
+
+            svg
+              .selectAll("vertLines")
+              .data(data_this)
+              .enter()
+              .append("line")
+                .attr("x1", function(d){return(x(d.key))})
+                .attr("x2", function(d){return(x(d.key))})
+                .attr("y1", function(d){return(y(d.value.min))})
+                .attr("y2", function(d){return(y(d.value.max))})
+                .attr("stroke", "#7e5a3f")
+                .style("stroke-width", "2px")
+                .style("width", 40)
+
+            // rectangle for the main box
+            var boxWidth = 60
+            svg
+              .selectAll("boxes")
+              .data(data_this)
+              .enter()
+              .append("rect")
+                  .attr("x", function(d){return(x(d.key)-boxWidth/2)})
+                  .attr("y", function(d){return(y(d.value.q3))})
+                  .attr("height", function(d){return(y(d.value.q1)-y(d.value.q3))})
+                  .attr("width", boxWidth )
+                  .attr("stroke", "#7e5a3f")
+                  .style("stroke-width", "2px")
+                  .style("fill", "#69b3a2")
+
+            // Show the median
+            svg
+              .selectAll("medianLines")
+              .data(data_this)
+              .enter()
+              .append("line")
+                .attr("x1", function(d){return(x(d.key)-boxWidth/2) })
+                .attr("x2", function(d){return(x(d.key)+boxWidth/2) })
+                .attr("y1", function(d){return(y(d.value.median))})
+                .attr("y2", function(d){return(y(d.value.median))})
+                .attr("stroke", "#7e5a3f")
+                .style("stroke-width", "2px")
+                .style("width", 80)
+
+            svg.selectAll(".axis text")
+              .style("fill", "#7e5a3f"); // Set the text color to red
+
+            svg.selectAll(".axis path")
+              .style("stroke", "#7e5a3f")
+              .style("stroke-width", "2px"); // Set the axis line color to blue
+
+            svg.selectAll(".axis line")
+              .style("stroke", "#7e5a3f")
+              .style("stroke-width", "2px"); // Set the tick line color to green
+          }
+
+          function traits(subSet) {
+            d3.select("#left").html("");
+            d3.select("#right").html("");
+            d3.select("#headline").html("");
+
+            //headlines
+            const div = d3.select("#headline");
+            div.append("h4").style("text-align", "center").text("Top 5 characteristics");
+
+            
+
+            keyword = subSet.key
+            var domain = ['with ' + keyword, 'without ' + keyword]
+            var svg = d3.select("#word-cloud").append("svg")
+
+            // var column_left = document.getElementById("left")
+
+            const column_left = d3.select('#left')
+            column_left
+              .selectAll("p")
+              .data(subSet.top5[0])
+              .enter()
+              .append("p")
+              .style("text-align", "center")
+              .text((d) => d);
+            
+            column_left.append("p").attr("class","background").style("text-align", "center").style("margin-top", "23px").text("with "+ subSet.key);
+
+            const column_right = d3.select('#right')
+            column_right
+              .selectAll("p")
+              .data(subSet.top5[1])
+              .enter()
+              .append("p")
+              .style("text-align", "center")
+              .text((d) => d);
+            
+            column_right.append("p").attr("class","background").style("text-align", "center").style("margin-top", "23px").text("without "+ subSet.key);
+
+            console.log("has reached this step");
+
+          }
+
+        
 }
 </script>
-<script type="text/javascript">
 
-var margin_box = {top: 10, right: 50, bottom: 10, left: 80},
-    width_box = document.getElementById("box-plot").clientWidth - margin_box.left - margin_box.right,
-    height_box = document.getElementById("box-plot").clientHeight - margin_box.top - margin_box.bottom;
-
-// append the svg object to the body of the page
-var svg = d3.select("#box-plot")
-  .append("svg")
-    .attr("width", width_box + margin_box.left + margin_box.right)
-    .attr("height", height_box + margin_box.top + margin_box.bottom)
-  .append("g")
-    .attr("transform",
-          "translate(" + margin_box.left + "," + margin_box.top + ")");
-
-// var returned = null
-// // Read the data and compute summary statistics for each specie
-// d3.csv("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/iris.csv", function(data) {
-//   // Compute quartiles, median, inter quantile range min and max --> these info are then used to draw the box.
-//   var sumstat = d3.nest() // nest function allows to group the calculation per level of a factor
-//     .key(function(d) { return d.Species;})
-//     .rollup(function(d) {
-//       q1 = d3.quantile(d.map(function(g) { return g.Sepal_Length;}).sort(d3.ascending),.25)
-//       median = d3.quantile(d.map(function(g) { return g.Sepal_Length;}).sort(d3.ascending),.5)
-//       q3 = d3.quantile(d.map(function(g) { return g.Sepal_Length;}).sort(d3.ascending),.75)
-//       interQuantileRange = q3 - q1
-//       min = q1 - 1.5 * interQuantileRange
-//       max = q3 + 1.5 * interQuantileRange
-//       return({q1: q1, median: median, q3: q3, interQuantileRange: interQuantileRange, min: min, max: max})
-//     })
-//     .entries(data)
-
-
-// }) 
-
-
-// self-defined data
- 
-var data_test = {"key": "sugar", "ratings": [ {"key":"with sugar",  "value": {"q1": 0.4, "q3": 0.5, "min": 0.1, "max": 0.8, "median": 0.55}}, {"key": "without sugar", "value": {"q1": 0.65, "q3": 0.7, "min": 0.5, "max": 0.75, "median": 0.66}}], "top5": [{"with sugar": ["sweet", "smooth"]}, {"without sugar": ["dry"]}], "percentage": "95%"}
-
-keyword = data_test.key
-
-// Show the X scale
-var domain = ['with ' + keyword, 'without ' + keyword]
-var x = d3.scaleBand()
-  .range([ 0, width_box ])
-  .domain(domain)
-  .paddingInner(1)
-  .paddingOuter(.5)
-svg.append("g")
-  .attr("transform", "translate(0," + height + ")")
-  .call(d3.axisBottom(x))
-
-// Show the Y scale
-var y = d3.scaleLinear()
-  .domain([0,1])
-  .range([height_box, 0])
-svg.append("g").call(d3.axisLeft(y))
-
-// Show the main vertical line
-
-// data only for this ingredient
-data_this = data_test.ratings 
-// console.log('data this: ', data_this)
-ingredient = data_test.key
-
-svg
-  .selectAll("vertLines")
-  .data(data_this)
-  .enter()
-  .append("line")
-    .attr("x1", function(d){return(x(d.key))})
-    .attr("x2", function(d){return(x(d.key))})
-    .attr("y1", function(d){return(y(d.value.min))})
-    .attr("y2", function(d){return(y(d.value.max))})
-    .attr("stroke", "black")
-    .style("width", 40)
-
-// rectangle for the main box
-var boxWidth = 60
-svg
-  .selectAll("boxes")
-  .data(data_this)
-  .enter()
-  .append("rect")
-      .attr("x", function(d){return(x(d.key)-boxWidth/2)})
-      .attr("y", function(d){return(y(d.value.q3))})
-      .attr("height", function(d){return(y(d.value.q1)-y(d.value.q3))})
-      .attr("width", boxWidth )
-      .attr("stroke", "black")
-      .style("fill", "#69b3a2")
-
-// Show the median
-svg
-  .selectAll("medianLines")
-  .data(data_this)
-  .enter()
-  .append("line")
-    .attr("x1", function(d){return(x(d.key)-boxWidth/2) })
-    .attr("x2", function(d){return(x(d.key)+boxWidth/2) })
-    .attr("y1", function(d){return(y(d.value.median))})
-    .attr("y2", function(d){return(y(d.value.median))})
-    .attr("stroke", "black")
-    .style("width", 80)
-// })
-
-
-</script> 
-<script type="text/javascript">
-var data_test = {"key": "sugar", "ratings": [ {"key":"with sugar",  "value": {"q1": 0.4, "q3": 0.5, "min": 0.1, "max": 0.8, "median": 0.55}}, {"key": "without sugar", "value": {"q1": 0.65, "q3": 0.7, "min": 0.5, "max": 0.75, "median": 0.66}}], "top5": [ ["sweet", "smooth"],  ["dry"]], "percentage": "95%"}
-var keyword = data_test.key
-var domain = ['with ' + keyword, 'without ' + keyword]
-console.log(data_test.top5)
-var svg = d3.select("#word-cloud").append("svg")
-
-// var column_left = document.getElementById("left")
-
-const column_left = d3.select('#left')
-column_left
-  .selectAll("p")
-  .data(data_test.top5[0])
-  .enter()
-  .append("p")
-  .text((d) => d);
-
-const column_right = d3.select('#right')
-column_right
-  .selectAll("p")
-  .data(data_test.top5[1])
-  .enter()
-  .append("p")
-  .text((d) => d);
-
-
-</script>
 
 </body>
 </html>

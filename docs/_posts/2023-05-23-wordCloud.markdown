@@ -3,7 +3,7 @@ layout: post
 title:  "Word Cloud"
 date:   2023-06-01
 categories: Visualization
-preview: /viz3.jpeg
+preview: /wordCloud.jpeg
 ---
 
 ## Comparison in the ratings of chocolate bars based on specific ingredients
@@ -15,4 +15,4 @@ preview: /viz3.jpeg
 
 <br>
 
-### Some of the things can we infer from it: 
+## Some of the things can we infer from it: 
