@@ -1,16 +1,15 @@
 ---
 layout: post
-title:  "Visualization 1"
+title:  "C"
 date:   2023-05-07 13:00:00 +0200
-categories: Visualization
+categories: Flow Map
 ---
 
 ## Origin country to company country flow map
+...
 
-### What do we want to show with this visualization ? 
-
-### The visualization: 
 {% include map.html %}
 {% include sankey.html %}
 
 ### Some of the things can we infer from it:
+...
