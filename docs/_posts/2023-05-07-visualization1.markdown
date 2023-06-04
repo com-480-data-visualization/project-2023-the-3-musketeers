@@ -23,4 +23,10 @@ Dive deeper into the complexities of cocoa bean flows with our dynamic Sankey di
 {% include sankey.html %}
 
 ## Some of the things can we infer from it:
-...
+- Cocoa bean trade dominance: There is a consistent flow of cocoa bean trade between exporting countries and the United States. For each country that engages in cocoa bean exports, there is a notable trade connection with the United States. This indicates a robust trade relationship and suggests that the United States plays a crucial role as a major market for cocoa beans.
+- Exporting countries: The top exporting countries, such as Venezuela, Peru, and the Dominican Republic, demonstrate their strength in cocoa bean production and export. This highlights their favorable climate conditions and agricultural practices that contribute to their high-quality cocoa production.
+- Regional distribution: The concentration of major cocoa bean exporters in South America and Africa indicates the importance of these regions in global cocoa supply. These regions have favorable climates and suitable environments for cocoa cultivation.
+- Importing countries: The dominance of North American and European countries as major importers of cocoa beans indicates their substantial consumption and processing capacities. This reflects the demand for cocoa products, such as chocolate and cocoa-based goods, in these regions.
+- Geographical flow pattern: The observed flow pattern from countries below the equator to those on the equator suggests the movement of cocoa beans from primarily tropical and subtropical regions to countries with equatorial climates. This aligns with the natural distribution of cocoa-growing regions.
+
+
