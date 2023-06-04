@@ -18,7 +18,7 @@ Immerse yourself in our interactive world map, where we showcase the top 50 coco
 
 ### Dynamic Sankey Diagram
 
-Dive deeper into the complexities of cocoa bean flows with our dynamic Sankey diagram. Explore the interconnections between countries and the volume and direction of each flow, to get a graps at the patterns that emerge and the factors shape the cocoa bean industry.
+Dive deeper into the complexities of cocoa bean flows with our dynamic Sankey diagram. Explore the interconnections between countries and the volume and direction of each flow, to get a grap at the patterns that emerge and the factors that shape the cocoa bean industry.
 
 {% include sankey.html %}
 
