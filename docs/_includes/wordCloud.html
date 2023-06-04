@@ -12,7 +12,7 @@
 
     #container{
       width: 100%;
-      height: 450px;
+      height: 400px;
       margin: 5px;
       /* background: #f6d7c1; */
     } 
@@ -42,7 +42,7 @@
 
     #traits{
       width: 100%;
-      height: 400px;
+      height: 200px;
       position: relative;
       /* left: 55%; */
       /* background: #f0dcf4; */
@@ -105,7 +105,7 @@
 </head>
 <body style="margin: 10px">
 <div id="container">
-    <h3>Word Cloud</h3>
+    <p>Have a <span style="font-weight: Bold; font-size: 23px;">click </span>on these ingredients!</p>
     <div id="word-cloud"></div>
 
     <div id = "percentage"></div>
@@ -142,7 +142,7 @@
     {"text": "Other Sweeteners", "value": 77}, 
     {"text": "1 Beans", "value": 6}];
     
-  console.log(myWords)
+  // console.log(myWords)
   var v_min = d3.min(myWords, function(d) {return(d.value);});
   var v_max = d3.max(myWords, function(d) {return(d.value);});
   var scale = d3.scaleLinear().domain([v_min,v_max]).range([20,80]);
@@ -219,16 +219,14 @@
               .style("font-size", d.size);
           }
 
-          // var data_test = [{"key": "sugar", "ratings": [ {"key":"with sugar",  "value": {"q1": 0.4, "q3": 0.5, "min": 0.1, "max": 0.8, "median": 0.55}}, {"key": "without sugar", "value": {"q1": 0.65, "q3": 0.7, "min": 0.5, "max": 0.75, "median": 0.66}}], "top5": [ ["sweet", "smooth"],  ["dry", "plain"]], "percentage": 95},{"key": "glitter", "ratings": [ {"key":"with glitter",  "value": {"q1": 0.4, "q3": 0.5, "min": 0.1, "max": 0.8, "median": 0.55}}, {"key": "without glitter", "value": {"q1": 0.65, "q3": 0.7, "min": 0.5, "max": 0.75, "median": 0.66}}], "top5": [ ["shiny", "stars"],  ["dark"]], "percentage": 95}];
-
           var data_test = [{"key": "1 Beans", "ratings": [{"key": "with 1 Beans", "value": {"q1": 2.8125, "q3": 3.0, "min": 2.5, "max": 3.5, "median": 3.0}}, {"key": "without 1 Beans", "value": {"q1": 3.0, "q3": 3.5, "min": 1.0, "max": 4.0, "median": 3.25}}], "top5": [[" intense", " bitter", "fatty", " controlled bitter", " fruit"], [" cocoa", " sweet", " nutty", " roasty", "creamy"]], "percentage": 0.23}, {"key": "3 Beans", "ratings": [{"key": "with 3 Beans", "value": {"q1": 3.0, "q3": 3.5, "min": 1.5, "max": 4.0, "median": 3.25}}, {"key": "without 3 Beans", "value": {"q1": 2.75, "q3": 3.5, "min": 1.0, "max": 4.0, "median": 3.25}}], "top5": [[" cocoa", " sweet", " nutty", " roasty", "sandy"], [" cocoa", " nutty", " sweet", "creamy", " earthy"]], "percentage": 41.45}, {"key": "Sugar", "ratings": [{"key": "with Sugar", "value": {"q1": 3.0, "q3": 3.5, "min": 1.0, "max": 4.0, "median": 3.25}}, {"key": "without Sugar", "value": {"q1": 2.75, "q3": 3.25, "min": 1.0, "max": 4.0, "median": 3.0}}], "top5": [[" cocoa", " sweet", " nutty", " roasty", "creamy"], [" bitter", " earthy", " sweet", " cocoa", "sandy"]], "percentage": 93.5}, {"key": "Cocao Butter", "ratings": [{"key": "with Cocao Butter", "value": {"q1": 3.0, "q3": 3.5, "min": 1.0, "max": 4.0, "median": 3.25}}, {"key": "without Cocao Butter", "value": {"q1": 3.0, "q3": 3.5, "min": 1.0, "max": 4.0, "median": 3.25}}], "top5": [[" cocoa", " sweet", "creamy", " nutty", "sandy"], [" cocoa", " earthy", " sour", " roasty", " nutty"]], "percentage": 66.22}, {"key": "2 Beans", "ratings": [{"key": "with 2 Beans", "value": {"q1": 3.0, "q3": 3.5, "min": 2.0, "max": 4.0, "median": 3.25}}, {"key": "without 2 Beans", "value": {"q1": 3.0, "q3": 3.5, "min": 1.0, "max": 4.0, "median": 3.25}}], "top5": [[" cocoa", " earthy", " sour", " roasty", " nutty"], [" cocoa", " sweet", " nutty", "creamy", "sandy"]], "percentage": 29.52}, {"key": "4 Beans", "ratings": [{"key": "with 4 Beans", "value": {"q1": 2.75, "q3": 3.5, "min": 1.5, "max": 4.0, "median": 3.0}}, {"key": "without 4 Beans", "value": {"q1": 3.0, "q3": 3.5, "min": 1.0, "max": 4.0, "median": 3.25}}], "top5": [[" sweet", "creamy", " nutty", " cocoa", " fatty"], [" cocoa", " sweet", " nutty", " roasty", " earthy"]], "percentage": 18.09}, {"key": "Lecithin", "ratings": [{"key": "with Lecithin", "value": {"q1": 2.75, "q3": 3.5, "min": 1.0, "max": 4.0, "median": 3.25}}, {"key": "without Lecithin", "value": {"q1": 3.0, "q3": 3.5, "min": 1.0, "max": 4.0, "median": 3.25}}], "top5": [["creamy", " sweet", " cocoa", " nutty", "sandy"], [" cocoa", " sweet", " nutty", " earthy", " roasty"]], "percentage": 19.0}, {"key": "Vanilla", "ratings": [{"key": "with Vanilla", "value": {"q1": 2.75, "q3": 3.5, "min": 1.0, "max": 4.0, "median": 3.0}}, {"key": "without Vanilla", "value": {"q1": 3.0, "q3": 3.5, "min": 1.0, "max": 4.0, "median": 3.25}}], "top5": [[" vanilla", "creamy", " cocoa", "sweet", " sweet"], [" cocoa", " sweet", " nutty", " roasty", " earthy"]], "percentage": 13.41}, {"key": "5 Beans", "ratings": [{"key": "with 5 Beans", "value": {"q1": 2.75, "q3": 3.5, "min": 1.0, "max": 4.0, "median": 3.0}}, {"key": "without 5 Beans", "value": {"q1": 3.0, "q3": 3.5, "min": 1.0, "max": 4.0, "median": 3.25}}], "top5": [[" cocoa", "creamy", " vanilla", "sweet", " sweet"], [" cocoa", " sweet", " nutty", " roasty", " earthy"]], "percentage": 7.26}, {"key": "5 Beans", "ratings": [{"key": "with 5 Beans", "value": {"q1": 2.75, "q3": 3.5, "min": 1.0, "max": 4.0, "median": 3.0}}, {"key": "without 5 Beans", "value": {"q1": 3.0, "q3": 3.5, "min": 1.0, "max": 4.0, "median": 3.25}}], "top5": [[" cocoa", "creamy", " vanilla", "sweet", " sweet"], [" cocoa", " sweet", " nutty", " roasty", " earthy"]], "percentage": 7.26}, {"key": "6 Beans", "ratings": [{"key": "with 6 Beans", "value": {"q1": 2.75, "q3": 2.9375, "min": 2.75, "max": 3.5, "median": 2.75}}, {"key": "without 6 Beans", "value": {"q1": 3.0, "q3": 3.5, "min": 1.0, "max": 4.0, "median": 3.25}}], "top5": [["strawberry", " cream", " gateway", "roasty", " sweet"], [" cocoa", " sweet", " nutty", " roasty", "creamy"]], "percentage": 0.15}, {"key": "Salt", "ratings": [{"key": "with Salt", "value": {"q1": 2.75, "q3": 3.25, "min": 1.5, "max": 3.75, "median": 3.0}}, {"key": "without Salt", "value": {"q1": 3.0, "q3": 3.5, "min": 1.0, "max": 4.0, "median": 3.25}}], "top5": [[" caramel", " salt", " salty", "creamy", "strawberry"], [" cocoa", " sweet", " nutty", " roasty", "creamy"]], "percentage": 1.41}, {"key": "Other Sweeteners", "ratings": [{"key": "with Other Sweeteners", "value": {"q1": 2.75, "q3": 3.25, "min": 1.5, "max": 3.75, "median": 3.0}}, {"key": "without Other Sweeteners", "value": {"q1": 3.0, "q3": 3.5, "min": 1.0, "max": 4.0, "median": 3.25}}], "top5": [[" coconut", " cocoa", " earthy", " caramel", " bitter"], [" cocoa", " sweet", " nutty", " roasty", "creamy"]], "percentage": 2.93}];
 
 
           function handleClick(d) {
-            console.log(d);
+            // console.log(d);
             // get data of the chosen word
             var subSet = getSubset(d);
-            console.log('subSet: ',subSet);
+            // console.log('subSet: ',subSet);
             // change div sizes
 
             // draw box-plot
@@ -241,12 +239,12 @@
 
             //show percentage
             var container_div = document.getElementById("container");
-            container_div.style.height = "900px"; 
+            container_div.style.height = "800px"; 
             
             var left_div = document.getElementById("left");
-            left_div.style.height = "280px"; 
+            left_div.style.height = "250px"; 
             var right_div = document.getElementById("right");
-            right_div.style.height = "260px"; 
+            right_div.style.height = "250px"; 
             
             traits(subSet);
             
@@ -260,7 +258,7 @@
 
           function showPercentage(subSet) {
             var div_percentage = d3.select('#percentage');
-            console.log(subSet);
+            // console.log(subSet);
             div_percentage
               .html("")
               .append("h4")
@@ -414,9 +412,6 @@
               .text((d) => d);
             
             column_right.append("p").attr("class","background").style("text-align", "center").style("margin-top", "23px").text("without "+ subSet.key);
-
-            console.log("has reached this step");
-
           }
 
         
