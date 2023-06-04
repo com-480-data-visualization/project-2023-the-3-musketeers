@@ -3,7 +3,7 @@ layout: post
 title:  "Flow Map"
 date:   2023-05-07 13:00:00 +0200
 categories: Visualization
-preview: /FlowPreview.jpg
+preview: /FlowPreview.jpeg
 ---
 
 ## Discover the Fascinating World of Cocoa Bean Flows!
