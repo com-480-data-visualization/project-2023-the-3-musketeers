@@ -6,7 +6,7 @@ categories: Visualization
 preview: /FlowPreview.jpg
 ---
 
-## Origin country to company country flow map
+## 'Top 50 Most Important Cocoa Bean Flow Map'
 ...
 
 {% include map.html %}
