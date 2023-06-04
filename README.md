@@ -12,8 +12,12 @@
 **80% of the final grade**
 
 [Our Website](https://com-480-data-visualization.github.io/project-2023-the-3-musketeers/)
-[Video Presentation](https://youtu.be/eteXOB2EuSM)
-[Process Book](https://github.com/com-480-data-visualization/project-2023-the-3-musketeers/tree/master/How do you like your chocolate.pdf)
+
+
+[Video Presentation](https://youtu.be/eteXOB2EuSM/)
+
+
+[Process Book](https://github.com/com-480-data-visualization/project-2023-the-3-musketeers/tree/master/Process-Book.pdf)
 
 ## Milestone 2 (7th May, 5pm)
 
